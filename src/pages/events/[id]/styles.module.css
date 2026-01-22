@@ -1,0 +1,128 @@
+.hero {
+    position: relative;
+    height: 120vh;
+    padding-top: 160px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.heroBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--stjames-cardbg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: opacity 0.2s ease-out;
+    z-index: 0;
+}
+
+.heroBg {
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    color: white;
+}
+
+.hero h1 {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 90px;
+    line-height: 85px;
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dateSquare {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid white;
+    height: 100px;
+    width: 100px;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.dateDay {
+    font-size: 44px;
+    line-height: 1.182em;
+}
+
+.dateMonth {
+    font-size: 28px;
+    line-height: 1.071em;
+    text-transform: uppercase;
+}
+
+.summary {
+    margin-top: 30px;
+    font-size: 20px;
+    max-width: 600px;
+}
+
+.mainContentInner {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 20px;
+}
+
+.mainContent h2 {
+    font-size: 40px;
+}
+
+.infoCard {
+    background-color: var(--stjames-cardbg);
+    padding: 30px 35px;
+    border-radius: 6px;
+}
+
+.infoCard h3 {
+    font-size: 26px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.sidebarItem {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebarItemIcon {
+    font-size: 22px;
+    padding-top: 2px;
+}
+
+.sidebarItemTitle {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.eventDescription {
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .hero h1 {
+        font-size: 70px;
+        line-height: 75px;
+    }
+
+    .mainContentInner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}

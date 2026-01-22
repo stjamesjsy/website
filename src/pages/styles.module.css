@@ -1,0 +1,184 @@
+.pageBackground {
+    background-image: url(/images/bg-textured.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+}
+
+.pageBackground::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6); 
+    pointer-events: none;
+}
+
+.hero {
+    position: relative;
+    min-height: 550px;
+    padding-top: 120px;
+    padding-bottom: 60px;
+    overflow: hidden;
+}
+
+.heroBg {
+    position: absolute;
+    inset: 0;
+    background-image: url(/images/home-header-3.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 65%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 65%,
+        transparent 100%
+    );
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+}
+
+
+.hero h1 {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 90px;
+    line-height: 85px;
+}
+
+.outline {
+    color: transparent;
+    -webkit-text-stroke: 3px white;
+}
+
+.tagline {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 10px;
+}
+
+.sectionGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.sectionGridImage {
+    height: auto;
+    width: 100%;
+}
+
+.sectionHeader {
+    font-size: 50px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.discoBingoSmall {
+    color: var(--stjames-yellow);
+    letter-spacing: 0.5px;
+}
+
+.discoBingoDesc {
+    font-size: 22px;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.button {
+    background: none;
+    border: 1px solid #838383;
+    color: white;
+    font-size: 20px;
+    padding: 4px 20px;
+}
+
+.button:hover {
+    background-color: var(--stjames-pink);
+    border-color: var(--stjames-pink);
+    cursor: pointer;
+    color: white;
+}
+
+.steakImage {
+    height: 400px;
+}
+
+.steakDesc {
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.eventsSection h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.eventsGrid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;    
+  max-width: 100%; 
+  margin-top: 20px;
+  -webkit-overflow-scrolling: touch; 
+}
+
+.contactSection {
+    background-color: black;
+}
+
+.contactSection h2 {
+    font-size: 40px;
+}
+
+.contactSection h3 {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+@media screen and (max-width: 768px) {
+    .sectionGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+        line-height: 55px;
+    }
+
+    .outline {
+         -webkit-text-stroke: 2px white;
+         font-size: 70px !important;
+    }
+
+    .steakImage {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .hero {
+        text-align: center;
+    }
+}

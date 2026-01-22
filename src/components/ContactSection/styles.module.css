@@ -1,0 +1,131 @@
+.contactContent {
+    display: flex;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 20px 0;
+}
+
+.col {
+    flex: 1 1 0;
+}
+
+.contactContent h1 {
+    margin-bottom: 20px;
+}
+
+.contactDetails {
+    background-color: var(--stjames-cardbg);
+    padding: 25px 30px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+.contactItem {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contactItemIcon {
+    font-size: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.contactItemTitle {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.map {
+    border: 0;
+    width: 100%;
+    height: 350px;
+}
+
+.contactForm {
+    background-color: var(--stjames-cardbg);
+    padding: 25px 30px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+.contactSubmitButton {
+    background-color: white;
+    border-color: white;
+    color: black;
+}
+
+.contactSubmitButton:hover {
+    background-color: color-mix(in srgb, var(--stjames-pink), black 30%);
+    border-color: color-mix(in srgb, var(--stjames-pink), black 30%);
+}
+
+.contactSubtitle {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.fieldLabel {
+    margin-bottom: 5px;
+}
+
+.input {
+    width: 100%;
+    background: none;
+    border: 1px solid #626161;
+    border-radius: 6px;
+    color: white;
+    padding: 5px 10px;
+}
+
+input.input {
+    height: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .contactContent {
+        flex-direction: column;
+    }
+
+    .contactDetails {
+        padding: 25px 15px;
+    }
+
+    .contactItemTitle {
+        font-size: 16px;
+    }
+
+    .map {
+        display: none;
+    }
+
+    .contactForm {
+        padding: 25px 18px;
+    }
+}
+
+.button {
+    background: none;
+    border: 1px solid #838383;
+    color: white;
+    font-size: 20px;
+    padding: 4px 20px;
+}
+
+.button:hover {
+    background-color: var(--stjames-pink);
+    border-color: var(--stjames-pink);
+    cursor: pointer;
+    color: white;
+}

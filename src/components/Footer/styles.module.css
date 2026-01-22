@@ -1,0 +1,30 @@
+.footer {
+    background-color: black;
+    border-top: 1px solid #1C1F2A;
+}
+
+.footer a {
+    text-transform: uppercase;
+}
+
+.links {
+    display: flex;
+    column-gap: 30px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.copyright {
+    color: #C7C3C2;
+    font-weight: 400;
+    text-align: center;
+}

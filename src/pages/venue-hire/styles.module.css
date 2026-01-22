@@ -1,0 +1,85 @@
+.title {
+    margin-bottom: 20px;
+}
+
+.welcomeSection {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 20px 0;
+}
+
+.col {
+    flex: 1 1 0;
+}
+
+.welcomeSection img {
+    width: 100%;
+}
+
+.welcomeSection h2 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+.welcomeSection p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.infoWrapper {
+    margin-top: 30px;
+}
+
+.infoBox {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 13px;
+}
+
+.infoIcon {
+    font-size: 36px;
+}
+
+.infoTitle {
+    font-weight: bold;
+}
+
+.clubRoomSection {
+    background-color: var(--stjames-darkbg);
+}
+
+.upstairsAtStJames {
+    color: var(--stjames-yellow);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 14px;
+}
+
+.clubRoomSection h2,
+.gallerySection h2,
+.contactSection h2 {
+    font-size: 50px;
+    text-transform: uppercase;
+    word-spacing: 6px;
+    line-height: 1;
+    padding: 10px 0;
+}
+
+.clubRoomSection ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .welcomeSection {
+        flex-direction: column;
+    }
+
+    .clubRoomSection h2,
+    .gallerySection h2,
+    .contactSection h2 {
+        font-size: 40px;
+    }
+}

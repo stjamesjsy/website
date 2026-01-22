@@ -1,0 +1,55 @@
+/* Site created by Luke (luke@glitch.je) */
+@font-face {
+    font-family: 'Excon';
+    src: url('/fonts/Excon-Variable.ttf') format('truetype');
+    font-style: normal;
+}
+
+:root {
+    --stjames-darkbg: #0a0e17;
+    --stjames-link-hover: #FFDE59;
+    --stjames-cardbg: #131315;
+    --stjames-yellow: #FFDE59;
+    --stjames-pink: #ff1083;
+}
+
+* {
+    font-family: Excon, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: var(--stjames-link-hover);
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-content {
+    flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
