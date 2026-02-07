@@ -1,8 +1,8 @@
-import { FaEnvelope, FaFacebook, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { CONTACT_EMAIL, FACEBOOK_URL, FOOD_MENU_URL, INSTAGRAM_URL } from "@/constants";
+import { FaEnvelope, FaFacebook, FaInstagram } from "react-icons/fa";
+import Container from "../Container";
 import SocialLink from "../SocialLink";
 import styles from "./styles.module.css";
-import Container from "../Container";
-import { CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL, PRICE_LIST_URL } from "@/constants";
 
 export default function Footer({ smallContainer }: { smallContainer?: boolean }) {
     return (
@@ -10,10 +10,11 @@ export default function Footer({ smallContainer }: { smallContainer?: boolean })
             <Container>
                 <div className={styles.links}>
                     <a href="/">Home</a>
-                    <a href="/gallery">Gallery</a>
+                    {/* <a href="/gallery">Gallery</a> */}
                     <a href="/venue-hire">Venue Hire</a>
                     <a href="/faqs">FAQs</a>
-                    <a href={PRICE_LIST_URL} target="_blank">Price List</a>
+                    {/* <a href={PRICE_LIST_URL} target="_blank">Price List</a> */}
+                     <a href={FOOD_MENU_URL} target="_blank">Food Menu</a>
                     <a href="/privacy">Privacy Policy</a>
                 </div>
                 <div className={styles.socialLinks}>

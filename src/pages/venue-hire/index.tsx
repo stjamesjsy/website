@@ -51,7 +51,7 @@ export default function VenueHire() {
                             Our premier hire space – ideal for private events any day of the week. Perfect for Bands, DJ Events, Birthdays & more!
                         </p>
                         <ul>
-                            <ListItem>Projector & Stage</ListItem>
+                            <ListItem>Stage</ListItem>
                             <ListItem>Private Bar</ListItem>
                             <ListItem>DJ Booth</ListItem>
                             <ListItem>Sound & Lighting System</ListItem>
@@ -59,6 +59,7 @@ export default function VenueHire() {
                             <ListItem>Seating Available</ListItem>
                             <ListItem>Customizable Space</ListItem>
                             <ListItem>Free Wi-Fi</ListItem>
+                            <ListItem>6 TVs</ListItem>
                             <ListItem>Buffet available upon request</ListItem>
                         </ul>
                     </Container>

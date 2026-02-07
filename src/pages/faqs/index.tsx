@@ -32,10 +32,16 @@ export default function FAQs() {
                         <Item title="Is there parking nearby?">
                             Yes, Minden Place multi storey carpark is less than a 1 minute walk around the corner.
                         </Item>
-                        <Item title="What are your opening hours?">
-                            Our opening hours are 7:30 PM – 02:00 AM, every day!
+                         <Item title="How do I book Disco Bingo?">
+                            Please <a href="/#contact">contact us</a> to book!
                         </Item>
-                         <Item title="Do you accept bookings outside of normal hours?">
+                        <Item title="What are your opening hours?">
+                            Our opening hours are 7:30 PM – 02:00 AM, every day! <br/> <br/>The times may be different for Disco Bingo or Sunday Lunch - this section will be updated soon.
+                        </Item>
+                          <Item title="Where are you located?">
+                            We are located at 5 Rue de Funchal, St Helier, JE2 4TT, near Minden Place carpark.
+                        </Item>
+                         <Item title="Do you accept event bookings outside of normal hours?">
                             Please <Link href="/#contact" style={{ color: "var(--stjames-yellow)" }}>contact us</Link>, depending on the event this may be possible.
                         </Item>
                         <Item title="Do you have a cloakroom?">

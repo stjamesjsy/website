@@ -67,13 +67,13 @@ export default function EventPage({ event }: Props) {
                                 <div className={styles.infoCard}>
                                     <h3>Event Details</h3>
 
-                                    <SidebarItem title="Time" icon={<FiClock color="var(--stjames-pink)" />}>
+                                    <SidebarItem title="Time" icon={<FiClock color="var(--stjames-purple)" />}>
                                         {event.time}
                                     </SidebarItem>
-                                    <SidebarItem title="Date" icon={<FiCalendar color="var(--stjames-pink)" />}>
+                                    <SidebarItem title="Date" icon={<FiCalendar color="var(--stjames-purple)" />}>
                                         {formatDateParts(event.date).formattedDate}
                                     </SidebarItem>
-                                    <SidebarItem title="Category" icon={<FiCalendar color="var(--stjames-pink)" />}>
+                                    <SidebarItem title="Category" icon={<FiCalendar color="var(--stjames-purple)" />}>
                                         {event.category}
                                     </SidebarItem>
                                 </div>

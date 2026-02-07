@@ -34,6 +34,9 @@ export default function Index() {
                             <h1>Welcome to</h1>
                             <h1>St James</h1>
                             <p className={styles.tagline}>
+                                A Great Place to Meet, Eat and be Entertained!
+                            </p>
+                            <p className={styles.tagline2}>
                                 Your night starts here - Disco Bingo, Karaoke, Live DJs, and good vibes!
                             </p>
                         </Container>
@@ -57,6 +60,23 @@ export default function Index() {
                                 </button>
                             </div>
                             <img className={styles.sectionGridImage} src="/images/disco-bingo/1.png" />
+                        </div>
+                    </Container>
+                </div>
+
+                <div className={styles.foodSection}>
+                    <Container>
+                        <div className={styles.sectionGrid}>
+                            <div>
+                                <p className={styles.discoBingoSmall}>The home of</p>
+                                <h2 className={styles.sectionHeader}>Late Night Karaoke</h2>
+                                <p className={styles.steakDesc}>
+                                    St James is the home of late night karaoke - every Thursday, Saturday & Sunday from 11pm until 2am.
+                                    <br /><br />
+                                    No booking required. What will you sing?
+                                </p>
+                            </div>
+                            <img className={clsx(styles.sectionGridImage, styles.steakImage)} src="/images/karaoke-alt.png" />
                         </div>
                     </Container>
                 </div>

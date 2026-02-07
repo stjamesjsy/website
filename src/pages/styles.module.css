@@ -25,7 +25,7 @@
 .heroBg {
     position: absolute;
     inset: 0;
-    background-image: url(/images/home-header-3.png);
+    /* background-image: url(/images/home-header-3.png); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -64,8 +64,18 @@
 }
 
 .tagline {
-    font-size: 20px;
+    font-size: 30px;
     margin-top: 30px;
+}
+
+.tagline2 {
+    margin-top: 30px;
+    font-size: 16px;
+    border: 1px solid var(--stjames-yellow);
+    width: fit-content;
+    padding: 5px 20px;
+    color: var(--stjames-yellow);
+    border-radius: 6px;
 }
 
 .buttonGroup {
@@ -111,8 +121,8 @@
 }
 
 .button:hover {
-    background-color: var(--stjames-pink);
-    border-color: var(--stjames-pink);
+    background-color: var(--stjames-purple);
+    border-color: var(--stjames-purple);
     cursor: pointer;
     color: white;
 }
@@ -158,6 +168,10 @@
 }
 
 @media screen and (max-width: 768px) {
+    .tagline {
+        font-size: 22px;
+    }
+
     .sectionGrid {
         grid-template-columns: 1fr;
     }

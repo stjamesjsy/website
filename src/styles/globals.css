@@ -10,6 +10,7 @@
     --stjames-link-hover: #FFDE59;
     --stjames-cardbg: #131315;
     --stjames-yellow: #FFDE59;
+    --stjames-purple: #9350c9;
     --stjames-pink: #ff1083;
 }
 
@@ -36,6 +37,12 @@ a:hover {
 
 h1 {
     font-size: 3rem;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline: none;
+    border: 1px solid var(--stjames-purple);
 }
 
 .page {

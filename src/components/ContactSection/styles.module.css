@@ -63,8 +63,8 @@
 }
 
 .contactSubmitButton:hover {
-    background-color: color-mix(in srgb, var(--stjames-pink), black 30%);
-    border-color: color-mix(in srgb, var(--stjames-pink), black 30%);
+    background-color: color-mix(in srgb, var(--stjames-purple), black 30%);
+    border-color: color-mix(in srgb, var(--stjames-purple), black 30%);
 }
 
 .contactSubtitle {
@@ -124,8 +124,8 @@ input.input {
 }
 
 .button:hover {
-    background-color: var(--stjames-pink);
-    border-color: var(--stjames-pink);
+    background-color: var(--stjames-purple);
+    border-color: var(--stjames-purple);
     cursor: pointer;
     color: white;
 }

@@ -8,7 +8,7 @@ const items = [
     { label: "Venue Hire", href: "/venue-hire" },
     { label: "FAQs", href: "/faqs" },
     { label: "Contact", href: "/#contact" },
-    { label: "Gallery", href: "/gallery" }
+    // { label: "Gallery", href: "/gallery" }
 ]
 
 interface Props {
