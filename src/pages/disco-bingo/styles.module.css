@@ -78,6 +78,14 @@
     padding-left: 40px;
 }
 
+.cashWarning {
+    background-color: rgb(122, 30, 30);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
 @media screen and (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;

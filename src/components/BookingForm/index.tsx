@@ -37,11 +37,11 @@ function formatPrettyDate(iso: string) {
 }
 
 function randomNumbers(length = 6) {
-  let result = '';
-  for (let i = 0; i < length; i++) {
-    result += Math.floor(Math.random() * 10); // 0-9
-  }
-  return result;
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += Math.floor(Math.random() * 10); // 0-9
+    }
+    return result;
 }
 
 export function BookingForm({ bookingType }: { bookingType: BookingType }) {
@@ -169,6 +169,12 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
             {state !== SubmitState.Success && (
                 <>
                     <div className={styles.youAreBooking}>You are booking {formatType()}</div>
+
+                    {bookingType === "discoBingo" && (
+                        <div className={styles.cashWarning}>
+                            Please note that Bingo cards can only be bought with CASH! There is a cash point nearby at NatWest Bath Street if needed.
+                        </div>
+                    )}
 
                     <div className={styles.field}>
                         <div className={styles.fieldLabel}>Date</div>

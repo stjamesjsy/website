@@ -22,6 +22,9 @@ export default function DiscoBingo() {
                             <p>
                                 Located at 5 Rue de Funchal, St Helier – just a short walk from the town centre.
                             </p>
+                            <div className={styles.cashWarning}>
+                                Please note that Bingo cards can only be bought with CASH! There is a cash point nearby at NatWest Bath Street if needed.
+                            </div>
                         </div>
                         <div className={styles.heroImage}>
                             <img src="/images/disco-bingo/1.png" alt="Disco Bingo Fun" />
