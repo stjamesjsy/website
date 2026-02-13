@@ -5,10 +5,10 @@ import Container from "../Container";
 
 const items = [
     { label: "Home", href: "/" },
+    { label: "Disco Bingo", href: "/disco-bingo" },
     { label: "Venue Hire", href: "/venue-hire" },
     { label: "FAQs", href: "/faqs" },
     { label: "Contact", href: "/#contact" },
-    // { label: "Gallery", href: "/gallery" }
 ]
 
 interface Props {

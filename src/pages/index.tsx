@@ -52,12 +52,12 @@ export default function Index() {
                                 <p className={styles.discoBingoDesc}>
                                     One of Jersey's best nights out, now at St James.
                                 </p>
-                                <button
+                                <a
                                     className={styles.button}
-                                    onClick={scrollToContact}
+                                    href="/disco-bingo"
                                 >
-                                    Book Now
-                                </button>
+                                    More Info
+                                </a>
                             </div>
                             <img className={styles.sectionGridImage} src="/images/disco-bingo/1.png" />
                         </div>
@@ -151,7 +151,7 @@ export default function Index() {
                             Contact us to reserve your table for Disco Bingo, Steak on the Stone, or Sunday Lunch, or to discuss any other enquiries by using the form below, via email or by messaging our Facebook page.
                         </p>
 
-                        <ContactSection />
+                        <ContactSection includeBooking />
                     </Container>
                 </div>
 

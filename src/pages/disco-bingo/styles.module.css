@@ -1,0 +1,102 @@
+.title {
+    margin-bottom: 20px;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.heroSection {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.link {
+    color: var(--stjames-yellow);
+    text-decoration: underline;
+}
+
+.heroText {
+    flex: 1;
+}
+
+.heroText p {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.heroImage {
+    flex: 1;
+}
+
+.heroImage img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.infoSection {
+     background-color: var(--stjames-darkbg);
+}
+
+.infoSection, .scheduleSection, .corporateSection, .bookingSection {
+    margin-bottom: 40px;
+}
+
+.infoSection h2, .scheduleSection h2, .corporateSection h2, .bookingSection h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.infoSection ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.listItem {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.listItem svg {
+    margin-right: 8px;
+    min-width: 16px;
+    font-size: 11px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.corporateSection {
+    border-left: 1px solid rgb(85, 84, 84);
+    padding-left: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .corporateSection {
+        border: none;
+        padding: 0;
+    }
+
+    .heroSection {
+        flex-direction: column;
+    }
+
+    .infoSection h2, .scheduleSection h2, .corporateSection h2, .bookingSection h2 {
+        font-size: 32px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+}

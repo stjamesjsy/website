@@ -1,0 +1,38 @@
+.button {
+    background: none;
+    border: 1px solid #838383;
+    color: white;
+    font-size: 20px;
+    padding: 4px 20px;
+}
+
+.button:hover {
+    background-color: var(--stjames-purple);
+    border-color: var(--stjames-purple);
+    cursor: pointer;
+    color: white;
+}
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.actionBtn {
+    padding: 15px 20px;
+}
+
+.backBtn {
+    background: none;
+    padding: 2px 10px;
+    color: white;
+    border: none;
+    width: fit-content;
+    border: 1px solid #383838;
+    border-radius: 8px;
+}
+
+.backBtn:hover {
+    cursor: pointer;
+}

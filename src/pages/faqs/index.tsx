@@ -32,9 +32,6 @@ export default function FAQs() {
                         <Item title="Is there parking nearby?">
                             Yes, Minden Place multi storey carpark is less than a 1 minute walk around the corner.
                         </Item>
-                         <Item title="How do I book Disco Bingo?">
-                            Please <a href="/#contact">contact us</a> to book!
-                        </Item>
                         <Item title="What are your opening hours?">
                             Our opening hours are 7:30 PM – 02:00 AM, every day! <br/> <br/>The times may be different for Disco Bingo or Sunday Lunch - this section will be updated soon.
                         </Item>
