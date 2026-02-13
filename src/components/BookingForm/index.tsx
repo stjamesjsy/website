@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { CustomDatePicker } from "../CustomDatePicker";
 
 const submitUrl = "https://formsubmit.co/ajax/22df9bd1beabb23825d1afb4c0ce1f66";
+// const submitUrl = "https://formsubmit.co/ajax/luke@glitch.je";
 
 export type BookingType = "discoBingo" | "sundayLunch" | "steakStone";
 
@@ -19,6 +20,17 @@ export const allowedDays: Record<BookingType, number[]> = {
     sundayLunch: [0],        // Sunday
     steakStone: [4],         // Thursday
 }
+
+const basketMenu = [
+    "Prawns (filo or tempura)",
+    "Fish and chips",
+    "Whole tail breaded scampi",
+    "Southern fried chicken goujons",
+    "Gluten free chicken goujons",
+    "Vegetarian spring rolls"
+] as const;
+
+type BasketItem = typeof basketMenu[number];
 
 function formatPrettyDate(iso: string) {
     const date = new Date(iso);
@@ -51,18 +63,29 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
     const [email, setEmail] = useState("");
     const [notes, setNotes] = useState("");
 
+    const [basketItems, setBasketItems] = useState<Record<BasketItem, string>>(
+        Object.fromEntries(basketMenu.map(item => [item, ""])) as Record<BasketItem, string>
+    );
+
     const [state, setState] = useState<SubmitState>(SubmitState.Idle);
 
     const submitForm = async (e: FormEvent) => {
         e.preventDefault();
-        if (state === SubmitState.Submitting) return;
 
+        if (state === SubmitState.Submitting) {
+            return;
+        }
         if (!date) {
             alert("Please select a date!")
             return;
         }
 
         setState(SubmitState.Submitting);
+
+        const selectedBasketItems = Object.entries(basketItems)
+            .filter(([, qty]) => Number(qty) > 0)
+            .map(([item, qty]) => `${item}: ${qty}`)
+            .join("\n") || "None selected";
 
         try {
             const response = await fetch(submitUrl, {
@@ -78,6 +101,7 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                     "Number of People": people,
                     "Name": name,
                     "Email": email,
+                    "Basket Meals": bookingType === "discoBingo" ? selectedBasketItems : undefined,
                     "Additional Details": notes
                 })
             });
@@ -93,6 +117,13 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
             setState(SubmitState.Error);
         }
     }
+
+    const updateBasketItem = (item: BasketItem, value: string) => {
+        setBasketItems(prev => ({
+            ...prev,
+            [item]: value
+        }));
+    };
 
     const formatType = () => {
         switch (bookingType) {
@@ -157,6 +188,24 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                                 <td className={styles.formDetailsHeading}>Email</td>
                                 <td>{email}</td>
                             </tr>
+                            {bookingType === "discoBingo" && (
+                                <tr>
+                                    <td className={styles.formDetailsHeading}>Basket Meals</td>
+                                    <td>
+                                        {Object.entries(basketItems).some(([, qty]) => Number(qty) > 0)
+                                            ? (
+                                                <ul style={{ paddingLeft: "20px" }}>
+                                                    {Object.entries(basketItems)
+                                                        .filter(([, qty]) => Number(qty) > 0)
+                                                        .map(([item, qty]) => (
+                                                            <li key={item}>{item} × {qty}</li>
+                                                        ))}
+                                                </ul>
+                                            )
+                                            : "None selected"}
+                                    </td>
+                                </tr>
+                            )}
                             <tr>
                                 <td className={styles.formDetailsHeading}>Notes</td>
                                 <td>{notes}</td>
@@ -232,12 +281,44 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                         />
                     </div>
 
+                    {bookingType === "discoBingo" && (
+                        <div className={styles.field}>
+                            <div className={styles.fieldLabel}>
+                                Basket meals (optional)
+                            </div>
+
+                            <div className={styles.fieldHint}>
+                                Just to give the kitchen an idea for larger tables.
+                                All payment and final orders are taken on the day.
+                                <div style={{ paddingTop: "5px" }} />
+                                Enter the amounts of each meal you want for your group.
+                            </div>
+
+                            <div className={styles.basketMenu}>
+                                {basketMenu.map(item => (
+                                    <div key={item} className={styles.basketItem}>
+                                        <span>{item} (£12.90)</span>
+                                        <input
+                                            type="number"
+                                            min={0}
+                                            inputMode="numeric"
+                                            pattern="[0-9]*"
+                                            placeholder="0"
+                                            className={styles.basketQty}
+                                            value={basketItems[item]}
+                                            onChange={(e) => {
+                                                updateBasketItem(item, e.target.value);
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
                     <div className={styles.field}>
                         <div className={styles.fieldLabel}>
                             Additional details (optional)
-                            {/* {bookingType === "discoBingo" && "Occasion details"}
-                    {bookingType === "sundayLunch" && "Dietary requirements"}
-                    {bookingType === "steakStone" && "Dietary / steak preferences"} */}
                         </div>
                         <textarea
                             rows={4}
