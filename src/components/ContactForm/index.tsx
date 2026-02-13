@@ -11,11 +11,12 @@ enum SubmitState {
     Error
 }
 
-function randomNumbers() {
-    const nums = new Set();
-    while (nums.size < 6) {
-        nums.add(Math.floor(Math.random() * 49) + 1);
-    }
+function randomNumbers(length = 6) {
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += Math.floor(Math.random() * 10); // 0-9
+  }
+  return result;
 }
 
 export function ContactForm() {
