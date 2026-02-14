@@ -61,6 +61,7 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
     const [people, setPeople] = useState(1);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [notes, setNotes] = useState("");
 
     const [basketItems, setBasketItems] = useState<Record<BasketItem, string>>(
@@ -101,6 +102,7 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                     "Number of People": people,
                     "Name": name,
                     "Email": email,
+                    "Phone Number": phone,
                     "Basket Meals": bookingType === "discoBingo" ? selectedBasketItems : undefined,
                     "Additional Details": notes
                 })
@@ -278,6 +280,17 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+
+                    <div className={styles.field}>
+                        <div className={styles.fieldLabel}>Phone Number</div>
+                        <input
+                            type="tel"
+                            className={styles.input}
+                            required
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
                         />
                     </div>
 
