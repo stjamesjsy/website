@@ -297,7 +297,7 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                     {bookingType === "discoBingo" && (
                         <div className={styles.field}>
                             <div className={styles.fieldLabel}>
-                                Basket meals (optional)
+                                Basket meals (Friday only!)
                             </div>
 
                             <div className={styles.fieldHint}>
