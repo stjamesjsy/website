@@ -87,12 +87,12 @@ export function ContactOrBook() {
                     <button className={styles.button} onClick={() => setBookingType("discoBingo")}>
                         Disco Bingo
                     </button>
-                    {/* <button className={styles.button} onClick={() => setBookingType("sundayLunch")}>
+                    <button className={styles.button} onClick={() => setBookingType("sundayLunch")}>
                         Sunday Lunch
                     </button>
                     <button className={styles.button} onClick={() => setBookingType("steakStone")}>
                         Steak on the Stone
-                    </button> */}
+                    </button>
                 </div>
             )}
 
