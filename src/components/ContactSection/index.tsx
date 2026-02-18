@@ -6,6 +6,7 @@ import { ContactForm } from "../ContactForm";
 import { ContactOrBook } from "../ContactOrBook";
 import SocialLink from "../SocialLink";
 import styles from "./styles.module.css";
+import Link from "next/link";
 
 export default function ContactSection({ includeBooking }: any) {
     return (
@@ -19,7 +20,13 @@ export default function ContactSection({ includeBooking }: any) {
                         5 Rue de Funchal, St Helier, JE2 4TT
                     </ContactItem>
                     <ContactItem title="Opening Hours" icon={<FiClock color="var(--stjames-yellow)" />}>
-                        Monday - Sunday: 7:30 PM - 02:00 AM
+                        We are open every day between 19:30 - 02:00 
+                        
+                        <div style={{ marginBottom: "10px" }} />
+
+                        <div style={{ fontSize: "13px" }}>
+                            We open earlier for Disco Bingo, Steak on the Stone & Sunday Lunch. See more info on our <Link href="/faqs">FAQs page</Link>.
+                        </div>
                     </ContactItem>
                     <ContactItem title="Get In Touch" icon={<FiMail color="var(--stjames-yellow)" />}>
                         <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
@@ -32,7 +39,7 @@ export default function ContactSection({ includeBooking }: any) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 function ContactItem({ title, children, icon }: PropsWithChildren<{ title: string; icon: any }>) {

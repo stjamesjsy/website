@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import { ContactForm } from "../ContactForm";
 import { BookingForm } from "../BookingForm";
 import clsx from "clsx";
+import { LuChevronLeft } from "react-icons/lu";
 
 type Action = "contact" | "book" | null;
 type BookingType = "discoBingo" | "sundayLunch" | "steakStone" | null;
@@ -20,36 +21,10 @@ export function ContactOrBook() {
     const [action, setAction] = useState<Action>(null);
     const [bookingType, setBookingType] = useState<BookingType>(null);
 
-    const [booking, setBooking] = useState<BookingData>({
-        bookingType: null,
-        date: "",
-        people: 1,
-        name: "",
-        email: "",
-        notes: "",
-    });
-
     const resetAll = () => {
         setAction(null);
         setBookingType(null);
-    };
-
-    const backFromBookingForm = () => {
-        setBookingType(null);
-    };
-
-    const updateBooking = (field: keyof BookingData, value: any) => {
-        setBooking(prev => ({ ...prev, [field]: value }));
-    };
-
-    const submitBooking = () => {
-        const payload = {
-            ...booking,
-            bookingType,
-        };
-
-        console.log("SEND TO FORMSUBMIT:", payload);
-    };
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -58,9 +33,17 @@ export function ContactOrBook() {
                 <div className={styles.choice}>
                     <button className={clsx(styles.button, styles.actionBtn)} onClick={() => setAction("contact")}>
                         Contact Us
+
+                        <div className={styles.buttonSummary}>
+                            For general enquiries
+                        </div>
                     </button>
                     <button className={clsx(styles.button, styles.actionBtn)} onClick={() => setAction("book")}>
                         Book a Table
+
+                        <div className={styles.buttonSummary}>
+                            Disco Bingo, Sunday Lunch & Steak on the Stone
+                        </div>
                     </button>
                 </div>
             )}
@@ -72,7 +55,7 @@ export function ContactOrBook() {
                         onClick={() => setAction(null)}
                         style={{ marginBottom: "20px" }}
                     >
-                        {"<"} Back
+                        <LuChevronLeft style={{ paddingTop: "5px" }} /> Back
                     </button>
                     <ContactForm />
                 </>
@@ -81,25 +64,41 @@ export function ContactOrBook() {
             {action === "book" && !bookingType && (
                 <div className={styles.choice}>
                     <button className={styles.backBtn} onClick={resetAll}>
-                        {"<"} Back
+                        <LuChevronLeft style={{ paddingTop: "5px" }} /> Back
                     </button>
 
                     <button className={styles.button} onClick={() => setBookingType("discoBingo")}>
                         Disco Bingo
+
+                        <div className={styles.buttonSummary}>
+                            Every Friday & Sunday
+                        </div>
                     </button>
                     <button className={styles.button} onClick={() => setBookingType("sundayLunch")}>
                         Sunday Lunch
+
+                        <div className={styles.buttonSummary}>
+                            Every Sunday
+                        </div>
                     </button>
                     <button className={styles.button} onClick={() => setBookingType("steakStone")}>
                         Steak on the Stone
+
+                        <div className={styles.buttonSummary}>
+                            Every Thursday
+                        </div>
                     </button>
                 </div>
             )}
 
             {action === "book" && bookingType && (
                 <>
-                    <button className={styles.backBtn} onClick={resetAll}>
-                        {"<"} Back
+                    <button
+                        className={styles.backBtn}
+                        onClick={resetAll}
+                        style={{ marginBottom: "20px" }}
+                    >
+                        <LuChevronLeft style={{ paddingTop: "5px" }} /> Back
                     </button>
 
                     <BookingForm bookingType={bookingType} />

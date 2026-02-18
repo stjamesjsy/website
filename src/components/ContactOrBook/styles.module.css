@@ -36,3 +36,9 @@
 .backBtn:hover {
     cursor: pointer;
 }
+
+.buttonSummary {
+    font-size: 12px;
+    color: #bcbcbc;
+    margin-top: 2px;
+}

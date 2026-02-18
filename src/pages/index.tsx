@@ -1,16 +1,11 @@
+import ContactSection from "@/components/ContactSection";
 import Container from "@/components/Container";
-import EventCard from "@/components/EventCard";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import events from "@/events";
-import styles from "./styles.module.css";
-import { PropsWithChildren, useRef } from "react";
-import clsx from "clsx";
-import SocialLink from "@/components/SocialLink";
-import { FiClock, FiMail, FiMapPin } from "react-icons/fi";
-import { FaEnvelope, FaFacebook, FaInstagram } from "react-icons/fa";
-import ContactSection from "@/components/ContactSection";
 import { FOOD_MENU_URL } from "@/constants";
+import clsx from "clsx";
+import { useRef } from "react";
+import styles from "./styles.module.css";
 
 export default function Index() {
     const contactRef = useRef<HTMLDivElement>(null);
@@ -91,6 +86,8 @@ export default function Index() {
                                     A fun and flavour-packed dining experience where your food is served on a blazing hot volcanic stone at your table. Each dish is prepared fresh by you, giving you full control to cook your steak just the way you like it.
                                     <br /><br />
                                     The stone is heated to an impressive 440°C (please don’t touch) and is presented on a bamboo board, keeping your meal hot and sizzling while you enjoy every bite.
+                                    <br /><br />
+                                    Served every Thursday.
                                 </p>
                                 <div className={styles.buttonGroup}>
                                     <button
