@@ -284,7 +284,7 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                     </div>
 
                     <div className={styles.field}>
-                        <div className={styles.fieldLabel}>Phone Number</div>
+                        <div className={styles.fieldLabel}>Phone number</div>
                         <input
                             type="tel"
                             className={styles.input}
