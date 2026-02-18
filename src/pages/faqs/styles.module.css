@@ -8,23 +8,6 @@
     gap: 10px;
 }
 
-.item {
-    background-color: var(--stjames-cardbg);
-    padding: 16px 25px;
-    border-radius: 16px;
-}
-
-.itemTitle {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.itemText {
-    font-size: 15px;
-    color: #CBD5E0
-}
-
 .contactUs {
     margin-top: 30px;
 }
