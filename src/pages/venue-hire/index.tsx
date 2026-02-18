@@ -59,7 +59,6 @@ export default function VenueHire() {
                             <ListItem>Seating Available</ListItem>
                             <ListItem>Customizable Space</ListItem>
                             <ListItem>Free Wi-Fi</ListItem>
-                            <ListItem>6 TVs</ListItem>
                             <ListItem>Buffet available upon request</ListItem>
                         </ul>
                     </Container>
