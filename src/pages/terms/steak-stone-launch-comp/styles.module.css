@@ -1,0 +1,21 @@
+.content h1 { 
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.content p {
+    margin-bottom: 30px;
+    margin-top: 6px;
+}
+
+.content ul {
+    margin-bottom: 30px;
+    padding-left: 30px;
+    margin-top: 6px;
+}
+
+@media screen and (max-width: 768px) {
+    .content h1 {
+        font-size: 28px;
+    }
+}
