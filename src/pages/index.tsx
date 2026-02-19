@@ -87,7 +87,7 @@ export default function Index() {
                                     <br /><br />
                                     The stone is heated to an impressive 440°C (please don’t touch) and is presented on a bamboo board, keeping your meal hot and sizzling while you enjoy every bite.
                                     <br /><br />
-                                    Served every Thursday.
+                                    Served every Thursday from 18:00 to 20:00.
                                 </p>
                                 <div className={styles.buttonGroup}>
                                     <button
