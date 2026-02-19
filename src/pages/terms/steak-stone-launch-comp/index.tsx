@@ -30,8 +30,8 @@ export default function CompTerms() {
 
                         <h2>3. Competition Period</h2>
                         <ul>
-                            <li>Starts: Thursday 19th February 2026</li>
-                            <li>Ends: Tuesday 24th February 2026 at 2:00pm</li>
+                            <li>Starts: Friday 27th February 2026</li>
+                            <li>Ends: Wednesday 25th March 2026 at 2:00pm</li>
                             <li>Entries submitted after this time will not be counted</li>
                             <li>The winner will be determined and contact by 7:00pm on the closing date</li>
                         </ul>
@@ -79,7 +79,7 @@ export default function CompTerms() {
                         </ul>
 
                         <p>
-                            Substitutions for this deal are at the discretion of St James Sports Bar.
+                            Substitutions for this deal are at the discretion of St James (JK SILVESTRE LIMITED).
                         </p>
 
                         <h2>6. Prize Conditions</h2>
