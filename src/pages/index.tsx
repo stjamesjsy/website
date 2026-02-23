@@ -118,7 +118,7 @@ export default function Index() {
                                 <p className={styles.steakDesc}>
                                     Enjoy a traditional Sunday carvery, featuring your choice of succulent meats, a generous tray of seasonal vegetables, crispy roast potatoes, and classic Yorkshire puddings.
                                     <br /><br />
-                                    Kids’ options available too.
+                                    Kids options available too.
                                 </p>
                                 <div className={styles.buttonGroup}>
                                     <button

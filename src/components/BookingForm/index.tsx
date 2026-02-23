@@ -2,6 +2,7 @@ import { FormEvent, useState } from "react";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import { CustomDatePicker } from "../CustomDatePicker";
+import excludedDates from "@/excludedDates";
 
 const submitUrl = "https://formsubmit.co/ajax/22df9bd1beabb23825d1afb4c0ce1f66";
 // const submitUrl = "https://formsubmit.co/ajax/luke@glitch.je";
@@ -241,6 +242,7 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                             bookingType={bookingType}
                             value={date}
                             onChange={setDate}
+                            excludedDates={excludedDates}
                         />
                         <div className={styles.fieldHint}>
                             {bookingType === "discoBingo" && "Available Fridays & Sundays"}
