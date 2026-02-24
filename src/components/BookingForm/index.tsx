@@ -24,7 +24,7 @@ export const allowedDays: Record<BookingType, number[]> = {
 
 const basketMenu = [
     "Prawns (filo or tempura)",
-    "Fish and chips",
+    "Fish goujons and chips",
     "Whole tail breaded scampi",
     "Southern fried chicken goujons",
     "Gluten free chicken goujons",
