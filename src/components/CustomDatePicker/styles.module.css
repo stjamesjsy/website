@@ -59,31 +59,3 @@
     cursor: pointer;
     color: white;
 }
-
-.calendarDay {
-    position: relative;
-}
-
-.excluded {
-    cursor: not-allowed;
-}
-
-/* The X overlay */
-.cross::before,
-.cross::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 15%;
-    width: 70%;
-    height: 2px;
-    background: #bbbbbb;
-}
-
-.cross::before {
-    transform: rotate(45deg);
-}
-
-.cross::after {
-    transform: rotate(-45deg);
-}
