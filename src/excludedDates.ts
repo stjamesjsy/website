@@ -1,4 +1,4 @@
-import { ExcludedDate } from "./components/CustomDatePicker";
+// import { ExcludedDate } from "./components/CustomDatePicker";
 
 export default [
     // Steak on the stone
@@ -8,4 +8,4 @@ export default [
 
     // Disco bingo
     { date: "03-04-2026", reason: "Disco bingo is not allowed on Good Friday by law" }
-] as ExcludedDate[];
+] as any[];
