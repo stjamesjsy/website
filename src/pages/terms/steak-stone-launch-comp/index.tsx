@@ -79,7 +79,7 @@ export default function CompTerms() {
                         </ul>
 
                         <p>
-                            Substitutions for this deal are at the discretion of St James (JK SILVESTRE LIMITED).
+                            Substitutions for this deal are at the discretion of St James.
                         </p>
 
                         <h2>6. Prize Conditions</h2>
@@ -104,7 +104,7 @@ export default function CompTerms() {
                         <h2>8. General</h2>
                         <p>
                             By entering this competition, participants agree to these Terms &amp; Conditions.
-                            St James (JK SILVESTRE LIMITED) reserves the right to amend or withdraw the competition at any time.
+                            St James reserves the right to amend or withdraw the competition at any time.
                         </p>
 
                         <h2>9. Contact</h2>
