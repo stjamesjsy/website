@@ -56,6 +56,7 @@ export default function CompTerms() {
                             <li>7oz Fillet (normally £23.50)</li>
                             <li>9x Scallops (normally £20.50)</li>
                             <li>9x Gambas (normally £20.50)</li>
+                            <li>2x Tuna (normally £20.50)</li>
                             <li>Halloumi (normally £19.50)</li>
                         </ul>
 
