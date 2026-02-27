@@ -12,7 +12,7 @@ export default function CompTerms() {
                 <Navbar />
                 <Container>
                     <div className={styles.content}>
-                        <h1>Steak on the Stone Launch Competition – Terms & Conditions</h1>
+                        <h1>Steak on the Stone Competition – Terms & Conditions</h1>
 
                         <p><strong>Created:</strong> 19/02/2026</p>
 
