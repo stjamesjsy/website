@@ -10,27 +10,26 @@ export default function DiscoBingo() {
     return (
         <div className="page">
             <div className="page-content">
-                <Navbar />
+                <Navbar homepage />
 
-                <Container>
-                    <div className={styles.heroSection}>
-                        <div className={styles.heroText}>
-                            <h1 className={styles.title}>Disco Bingo</h1>
-                            <p>
-                                The ultimate music bingo experience! Grab your bingo cards, dabbers, and get ready for rounds of your favourite hits – from 80s classics to school disco anthems.
-                            </p>
-                            <p>
-                                Located at 5 Rue de Funchal, St Helier – just a short walk from the town centre.
-                            </p>
-                            <div className={styles.cashWarning}>
-                                Please note that Bingo cards can only be bought with CASH! There is a cash point nearby at NatWest Bath Street if needed.
+                <div className={styles.hero}>
+                    <Container>
+                        <div className={styles.heroSection}>
+                            <div className={styles.heroText}>
+                                <h1 className={styles.title}>Disco Bingo</h1>
+                                <p>
+                                    The ultimate music bingo experience! Grab your bingo cards, dabbers, and get ready for rounds of your favourite hits – from 80s classics to school disco anthems.
+                                </p>
+                                <p>
+                                    Located at 5 Rue de Funchal, St Helier – just a short walk from the town centre.
+                                </p>
+                                <div className={styles.cashWarning}>
+                                    Please note that Bingo cards can only be bought with CASH! There is a cash point nearby at NatWest Bath Street if needed.
+                                </div>
                             </div>
                         </div>
-                        <div className={styles.heroImage}>
-                            <img src="/images/disco-bingo/1.png" alt="Disco Bingo Fun" />
-                        </div>
-                    </div>
-                </Container>
+                    </Container>
+                </div>
 
                 <div className={styles.infoSection}>
                     <Container>
@@ -47,29 +46,31 @@ export default function DiscoBingo() {
                     </Container>
                 </div>
 
-                <Container>
-                    <div className={styles.grid}>
-                        <div className={styles.scheduleSection}>
-                            <h2>Schedule & Meals</h2>
-                            <p>
-                                <strong>Friday:</strong> 7 PM – 11 PM<br />
-                                <strong>Sunday:</strong> 5 PM – 8 PM
-                            </p>
-                            <br />
-                            <p>
-                                Basket meals available on Fridays for £12.90. <a className={styles.link} href="/files/BasketMeals.pdf">View Menu</a>. Meals sold on-site and do not require pre-booking.
-                            </p>
-                        </div>
+                <div className={styles.scheduleAndCorporateSection}>
+                    <Container>
+                        <div className={styles.grid}>
+                            <div className={styles.scheduleSection}>
+                                <h2>Schedule & Meals</h2>
+                                <p>
+                                    <strong>Friday:</strong> 7 PM – 11 PM<br />
+                                    <strong>Sunday:</strong> 5 PM – 8 PM
+                                </p>
+                                <br />
+                                <p>
+                                    Basket meals available on Fridays for £12.90. <a className={styles.link} href="/files/BasketMeals.pdf">View Menu</a>. Meals sold on-site and do not require pre-booking.
+                                </p>
+                            </div>
 
-                        <div className={styles.corporateSection}>
-                            <h2>Corporate Disco Bingo</h2>
-                            <p>
-                                Looking to host a corporate night? Disco Bingo can be booked for private corporate events.
-                                <br/><br/><a className={styles.link} href="/#contact">Contact us</a> to arrange your event.
-                            </p>
+                            <div className={styles.corporateSection}>
+                                <h2>Corporate Disco Bingo</h2>
+                                <p>
+                                    Looking to host a corporate night? Disco Bingo can be booked for private corporate events.
+                                    <br /><br /><a className={styles.link} href="/#contact">Contact us</a> to arrange your event.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </Container>
+                    </Container>
+                </div>
 
                 <Container>
                     <div className={styles.bookingSection}>

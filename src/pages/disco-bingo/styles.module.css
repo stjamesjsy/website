@@ -4,6 +4,14 @@
     font-weight: bold;
 }
 
+.hero {
+    background-image: url(/images/disco-bingo/disco-bingo-hero.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+}
+
 .heroSection {
     display: flex;
     align-items: center;
@@ -19,6 +27,7 @@
 
 .heroText {
     flex: 1;
+    max-width: 65%;
 }
 
 .heroText p {
@@ -37,11 +46,11 @@
 }
 
 .infoSection {
-     background-color: var(--stjames-darkbg);
+    background-color: var(--stjames-darkbg);
 }
 
 .infoSection, .scheduleSection, .corporateSection, .bookingSection {
-    margin-bottom: 40px;
+    padding: 30px 0;
 }
 
 .infoSection h2, .scheduleSection h2, .corporateSection h2, .bookingSection h2 {
@@ -86,6 +95,16 @@
     font-size: 14px;
 }
 
+.scheduleAndCorporateSection {
+    background-color: rgb(19, 24, 28);
+}
+
+@media screen and (max-width: 1100px) {
+    .heroText {
+        max-width: 100%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
@@ -98,6 +117,10 @@
 
     .heroSection {
         flex-direction: column;
+    }
+
+    .heroText {
+        max-width: 100%;
     }
 
     .infoSection h2, .scheduleSection h2, .corporateSection h2, .bookingSection h2 {
