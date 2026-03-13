@@ -16,33 +16,20 @@
 
 .hero {
     position: relative;
-    min-height: 550px;
-    padding-top: 120px;
-    padding-bottom: 60px;
+    min-height: 100vh;
+    padding-top: 170px;
     overflow: hidden;
+    background: linear-gradient(rgba(26, 31, 37, 0.4) 0%, rgba(26, 31, 37, 0.1) 40%, rgba(26, 31, 37, 0.85) 100%);
 }
 
 .heroBg {
     position: absolute;
     inset: 0;
-    /* background-image: url(/images/home-header-3.png); */
+    background-image: url(/images/hero.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: 0;
-
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        black 0%,
-        black 65%,
-        transparent 100%
-    );
-    mask-image: linear-gradient(
-        to bottom,
-        black 0%,
-        black 65%,
-        transparent 100%
-    );
 }
 
 .heroContent {
@@ -50,37 +37,68 @@
     z-index: 1;
 }
 
+.heroInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heroInnerContent {
+    max-width: 600px;
+    text-align: center;
+}
+
+.logo {
+    height: 16rem;
+    margin-bottom: 16px;
+}
 
 .hero h1 {
     font-weight: 900;
     text-transform: uppercase;
-    font-size: 90px;
+    font-size: 8rem;
     line-height: 85px;
-}
-
-.outline {
-    color: transparent;
-    -webkit-text-stroke: 3px white;
+    margin-bottom: 50px;
 }
 
 .tagline {
-    font-size: 30px;
-    margin-top: 30px;
+    font-size: 22px;
+    font-weight: 100 !important;
+    text-transform: uppercase;
+    letter-spacing: 4;
 }
 
 .tagline2 {
     margin-top: 30px;
     font-size: 16px;
-    border: 1px solid var(--stjames-yellow);
-    width: fit-content;
-    padding: 5px 20px;
-    color: var(--stjames-yellow);
-    border-radius: 6px;
+    color: #a7a6a6;
 }
 
-.buttonGroup {
+.heroButtons {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 15px;
+}
+
+.scrollButton {
+    position: absolute;
+    bottom: 20px;
+    left: 49%;
+    right: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    font-family: "Bebas Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: scroll-bounce 1s infinite ease-in-out;
+    gap: 5px;
 }
 
 .sectionGrid {
@@ -114,17 +132,29 @@
 
 .button {
     background: none;
-    border: 1px solid #838383;
-    color: white;
-    font-size: 20px;
-    padding: 4px 20px;
+    border: 1px solid var(--stjames-yellow);
+    font-size: 14px;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    color: var(--stjames-yellow);
+    text-transform: uppercase;
+    transition: transform 200ms ease-in-out;
 }
 
 .button:hover {
-    background-color: var(--stjames-purple);
-    border-color: var(--stjames-purple);
+    transform: scale(1.1);
+    color: var(--stjames-yellow);
     cursor: pointer;
-    color: white;
+}
+
+.buttonBlue {
+    background-color: var(--stjames-yellow);
+    color: black;
+}
+
+.buttonBlue:hover {
+    color: black;
 }
 
 .steakImage {
@@ -167,6 +197,11 @@
     letter-spacing: 0.3px;
 }
 
+.buttonGroup {
+    display: flex;
+    gap: 15px;
+}
+
 @media screen and (max-width: 768px) {
     .tagline {
         font-size: 22px;
@@ -177,13 +212,8 @@
     }
 
     .hero h1 {
-        font-size: 50px;
-        line-height: 55px;
-    }
-
-    .outline {
-         -webkit-text-stroke: 2px white;
-         font-size: 70px !important;
+        font-size: 65px;
+        line-height: 5px;
     }
 
     .steakImage {
@@ -194,5 +224,16 @@
 @media screen and (max-width: 900px) {
     .hero {
         text-align: center;
+    }
+}
+
+@keyframes scroll-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
     }
 }

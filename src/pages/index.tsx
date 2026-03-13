@@ -6,6 +6,7 @@ import { FOOD_MENU_URL } from "@/constants";
 import clsx from "clsx";
 import { useRef } from "react";
 import styles from "./styles.module.css";
+import { LuChevronDown } from "react-icons/lu";
 
 export default function Index() {
     const contactRef = useRef<HTMLDivElement>(null);
@@ -22,7 +23,7 @@ export default function Index() {
             <div className={clsx("page-content", styles.pageBackground)}>
                 <Navbar homepage />
 
-                <div className={styles.hero}>
+                {/* <div className={styles.hero}>
                     <div className={styles.heroBg} />
                     <div className={styles.heroContent}>
                         <Container>
@@ -36,6 +37,38 @@ export default function Index() {
                             </p>
                         </Container>
                     </div>
+                </div> */}
+
+                <div className={styles.hero}>
+                    <div className={styles.heroBg} />
+                    <div className={styles.heroContent}>
+                        <Container>
+                            <div className={styles.heroInner}>
+                                <div className={styles.heroInnerContent}>
+                                    {/* <img className={styles.logo} src="/images/logo.png" /> */}
+                                    <h1>ST JAMES</h1>
+                                    <p className={styles.tagline}>
+                                        Pub · Bar · Nightclub
+                                    </p>
+                                    <p className={styles.tagline2}>
+                                       Your night starts here - Disco Bingo, Karaoke, Live DJs, and good vibes!
+                                    </p>
+
+                                    <div className={styles.heroButtons}>
+                                        <a href="#disco-bingo" className={clsx(styles.button, styles.buttonBlue)}>
+                                            What's on
+                                        </a>
+                                        <a href="#contact" className={styles.button}>
+                                            Book a table 
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </Container>
+                    </div>
+                    <button className={styles.scrollButton}>
+                        <LuChevronDown />
+                    </button>
                 </div>
 
                 <div className={styles.discoBingo}>

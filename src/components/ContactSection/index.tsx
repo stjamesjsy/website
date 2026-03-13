@@ -20,8 +20,8 @@ export default function ContactSection({ includeBooking }: any) {
                         5 Rue de Funchal, St Helier, JE2 4TT
                     </ContactItem>
                     <ContactItem title="Opening Hours" icon={<FiClock color="var(--stjames-yellow)" />}>
-                        We are open every day between 19:30 - 02:00 
-                        
+                        We are open every day between 19:30 - 02:00
+
                         <div style={{ marginBottom: "10px" }} />
 
                         <div style={{ fontSize: "13px" }}>
@@ -32,9 +32,9 @@ export default function ContactSection({ includeBooking }: any) {
                         <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
                     </ContactItem>
                     <div className={styles.socialLinks}>
-                        <SocialLink href={FACEBOOK_URL} icon={<FaFacebook color="white" />} />
-                        <SocialLink href={INSTAGRAM_URL} icon={<FaInstagram color="white" />} />
-                        <SocialLink href={`mailto:${CONTACT_EMAIL}`} icon={<FaEnvelope color="white" />} />
+                        <SocialLink href={FACEBOOK_URL} icon={<FaFacebook />} />
+                        <SocialLink href={INSTAGRAM_URL} icon={<FaInstagram />} />
+                        <SocialLink href={`mailto:${CONTACT_EMAIL}`} icon={<FaEnvelope />} />
                     </div>
                 </div>
             </div>

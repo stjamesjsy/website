@@ -12,5 +12,6 @@
 }
 
 .link:hover {
-    background-color: var(--stjames-purple);
+    background-color: var(--stjames-yellow);
+    color: black;
 }

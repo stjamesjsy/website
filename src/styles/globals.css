@@ -18,6 +18,8 @@
     font-family: Excon, sans-serif;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 body {
@@ -42,7 +44,7 @@ h1 {
 input:focus-visible,
 textarea:focus-visible {
     outline: none;
-    border: 1px solid var(--stjames-purple);
+    border: 1px solid var(--stjames-yellow);
 }
 
 .page {

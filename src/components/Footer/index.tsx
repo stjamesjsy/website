@@ -14,13 +14,13 @@ export default function Footer({ smallContainer }: { smallContainer?: boolean })
                     <a href="/venue-hire">Venue Hire</a>
                     <a href="/faqs">FAQs</a>
                     {/* <a href={PRICE_LIST_URL} target="_blank">Price List</a> */}
-                     <a href={FOOD_MENU_URL} target="_blank">Food Menu</a>
+                    <a href={FOOD_MENU_URL} target="_blank">Food Menu</a>
                     <a href="/privacy">Privacy Policy</a>
                 </div>
                 <div className={styles.socialLinks}>
-                    <SocialLink href={FACEBOOK_URL} icon={<FaFacebook color="white" />} />
-                    <SocialLink href={INSTAGRAM_URL} icon={<FaInstagram color="white" />} />
-                    <SocialLink href={`mailto:${CONTACT_EMAIL}`} icon={<FaEnvelope color="white" />} />
+                    <SocialLink href={FACEBOOK_URL} icon={<FaFacebook />} />
+                    <SocialLink href={INSTAGRAM_URL} icon={<FaInstagram />} />
+                    <SocialLink href={`mailto:${CONTACT_EMAIL}`} icon={<FaEnvelope />} />
                 </div>
                 <div className={styles.copyright}>Copyright &copy; {new Date().getFullYear()} St James. All rights reserved</div>
             </Container>
