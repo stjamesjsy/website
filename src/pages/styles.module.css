@@ -111,12 +111,18 @@
 .sectionGridImage {
     height: auto;
     width: 100%;
+    border-radius: 20px;
 }
 
 .sectionHeader {
     font-size: 50px;
     line-height: 1.1;
     margin-bottom: 12px;
+}
+
+.discoBingoSection {
+    padding: 30px 0;
+    background-color: #1c242bc3;
 }
 
 .discoBingoSmall {
@@ -127,14 +133,26 @@
 .discoBingoDesc {
     font-size: 22px;
     font-weight: 200;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
+}
+
+.karaokeSection {
+    padding: 30px 0;
+    background-color: #2b4257cf;
+}
+
+.steakSection {
+    padding: 30px 0;
+    background-color: #1c242bcc;
 }
 
 .button {
+    display: block;
     background: none;
     border: 1px solid var(--stjames-yellow);
     font-size: 14px;
     padding: 12px 30px;
+    width: fit-content;
     font-weight: bold;
     border-radius: 20px;
     color: var(--stjames-yellow);

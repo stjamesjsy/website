@@ -45,10 +45,9 @@ export default function Index() {
                         <Container>
                             <div className={styles.heroInner}>
                                 <div className={styles.heroInnerContent}>
-                                    {/* <img className={styles.logo} src="/images/logo.png" /> */}
                                     <h1>ST JAMES</h1>
                                     <p className={styles.tagline}>
-                                        Pub · Bar · Nightclub
+                                        Karaoke · Disco Bingo · Nightclub
                                     </p>
                                     <p className={styles.tagline2}>
                                        Your night starts here - Disco Bingo, Karaoke, Live DJs, and good vibes!
@@ -71,7 +70,7 @@ export default function Index() {
                     </button>
                 </div>
 
-                <div className={styles.discoBingo}>
+                <div className={styles.discoBingoSection}>
                     <Container>
                         <div className={styles.sectionGrid}>
                             <div>
@@ -92,7 +91,7 @@ export default function Index() {
                     </Container>
                 </div>
 
-                <div className={styles.foodSection}>
+                <div className={styles.karaokeSection}>
                     <Container>
                         <div className={styles.sectionGrid}>
                             <div>
@@ -104,12 +103,12 @@ export default function Index() {
                                     No booking required. What will you sing?
                                 </p>
                             </div>
-                            <img className={clsx(styles.sectionGridImage, styles.steakImage)} src="/images/karaoke-alt.png" />
+                            <img className={clsx(styles.sectionGridImage)} src="/images/karaoke.png" />
                         </div>
                     </Container>
                 </div>
 
-                <div className={styles.foodSection}>
+                <div className={styles.steakSection}>
                     <Container>
                         <div className={styles.sectionGrid}>
                             <div>
