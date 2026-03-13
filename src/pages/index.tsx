@@ -70,7 +70,7 @@ export default function Index() {
                     </button>
                 </div>
 
-                <div className={styles.discoBingoSection}>
+                <div id="disco-bingo" className={styles.discoBingoSection}>
                     <Container>
                         <div className={styles.sectionGrid}>
                             <div>
@@ -91,7 +91,7 @@ export default function Index() {
                     </Container>
                 </div>
 
-                <div className={styles.karaokeSection}>
+                <div id="karaoke" className={styles.karaokeSection}>
                     <Container>
                         <div className={styles.sectionGrid}>
                             <div>
@@ -108,7 +108,7 @@ export default function Index() {
                     </Container>
                 </div>
 
-                <div className={styles.steakSection}>
+                <div id="steak" className={styles.steakSection}>
                     <Container>
                         <div className={styles.sectionGrid}>
                             <div>
@@ -141,7 +141,7 @@ export default function Index() {
                     </Container>
                 </div>
 
-                <div className={styles.foodSection}>
+                <div id="sunday-lunch" className={styles.foodSection}>
                     <Container>
                         <div className={styles.sectionGrid}>
                             <div>
@@ -172,7 +172,7 @@ export default function Index() {
                     </Container>
                 </div>
 
-                <div className={styles.contactSection} id="contact" ref={contactRef}>
+                <div id="contact" className={styles.contactSection} ref={contactRef}>
                     <Container>
                         <h2>Contact Us</h2>
 
