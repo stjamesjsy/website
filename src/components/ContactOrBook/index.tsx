@@ -38,11 +38,17 @@ export function ContactOrBook() {
                             For general enquiries
                         </div>
                     </button>
-                    <button className={clsx(styles.button, styles.actionBtn)} onClick={() => setAction("book")}>
+                    <button
+                        className={clsx(styles.button, styles.actionBtn)}
+                        onClick={() => {
+                            setAction("book");
+                            setBookingType("discoBingo");
+                        }}
+                    >
                         Book a Table
 
                         <div className={styles.buttonSummary}>
-                            Disco Bingo, Sunday Lunch & Steak on the Stone
+                            Disco Bingo - Every Friday & Sunday
                         </div>
                     </button>
                 </div>

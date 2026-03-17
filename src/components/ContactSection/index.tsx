@@ -25,7 +25,7 @@ export default function ContactSection({ includeBooking }: any) {
                         <div style={{ marginBottom: "10px" }} />
 
                         <div style={{ fontSize: "13px" }}>
-                            We open earlier for Disco Bingo, Steak on the Stone & Sunday Lunch. See more info on our <Link href="/faqs">FAQs page</Link>.
+                            We open earlier for Disco Bingo. See more info on our <Link href="/faqs">FAQs page</Link>.
                         </div>
                     </ContactItem>
                     <ContactItem title="Get In Touch" icon={<FiMail color="var(--stjames-yellow)" />}>

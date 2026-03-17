@@ -14,7 +14,7 @@ export default function Footer({ smallContainer }: { smallContainer?: boolean })
                     <a href="/venue-hire">Venue Hire</a>
                     <a href="/faqs">FAQs</a>
                     {/* <a href={PRICE_LIST_URL} target="_blank">Price List</a> */}
-                    <a href={FOOD_MENU_URL} target="_blank">Food Menu</a>
+                    {/* <a href={FOOD_MENU_URL} target="_blank">Food Menu</a> */}
                     <a href="/privacy">Privacy Policy</a>
                 </div>
                 <div className={styles.socialLinks}>

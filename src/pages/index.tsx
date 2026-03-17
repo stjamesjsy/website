@@ -108,76 +108,12 @@ export default function Index() {
                     </Container>
                 </div>
 
-                <div id="steak" className={styles.steakSection}>
-                    <Container>
-                        <div className={styles.sectionGrid}>
-                            <div>
-                                <p className={styles.discoBingoSmall}>Now Serving</p>
-                                <h2 className={styles.sectionHeader}>Steak on the Stone</h2>
-                                <p className={styles.steakDesc}>
-                                    A fun and flavour-packed dining experience where your food is served on a blazing hot volcanic stone at your table. Each dish is prepared fresh by you, giving you full control to cook your steak just the way you like it.
-                                    <br /><br />
-                                    The stone is heated to an impressive 440°C (please don’t touch) and is presented on a bamboo board, keeping your meal hot and sizzling while you enjoy every bite.
-                                    <br /><br />
-                                    Served every Thursday from 18:00 to 20:00.
-                                </p>
-                                <div className={styles.buttonGroup}>
-                                    <button
-                                        className={styles.button}
-                                        onClick={scrollToContact}
-                                    >
-                                        Book Now
-                                    </button>
-                                    <a
-                                        className={styles.button}
-                                        href={FOOD_MENU_URL}
-                                    >
-                                        View Menu
-                                    </a>
-                                </div>
-                            </div>
-                            <img className={clsx(styles.sectionGridImage, styles.steakImage)} src="/images/food/steak-1.jpg" />
-                        </div>
-                    </Container>
-                </div>
-
-                <div id="sunday-lunch" className={styles.foodSection}>
-                    <Container>
-                        <div className={styles.sectionGrid}>
-                            <div>
-                                <p className={styles.discoBingoSmall}>Every Sunday</p>
-                                <h2 className={styles.sectionHeader}>Sunday Lunch</h2>
-                                <p className={styles.steakDesc}>
-                                    Enjoy a traditional Sunday carvery, featuring your choice of succulent meats, a generous tray of seasonal vegetables, crispy roast potatoes, and classic Yorkshire puddings.
-                                    <br /><br />
-                                    Kids options available too.
-                                </p>
-                                <div className={styles.buttonGroup}>
-                                    <button
-                                        className={styles.button}
-                                        onClick={scrollToContact}
-                                    >
-                                        Book Now
-                                    </button>
-                                    <a
-                                        className={styles.button}
-                                        href={FOOD_MENU_URL}
-                                    >
-                                        View Menu
-                                    </a>
-                                </div>
-                            </div>
-                            <img className={clsx(styles.sectionGridImage, styles.steakImage)} src="/images/food/sunday-lunch-1.jpg" />
-                        </div>
-                    </Container>
-                </div>
-
                 <div id="contact" className={styles.contactSection} ref={contactRef}>
                     <Container>
                         <h2>Contact Us</h2>
 
                         <p className={styles.contactSubtitle}>
-                            Contact us to reserve your table for Disco Bingo, Steak on the Stone, or Sunday Lunch, or to discuss any other enquiries by using the form below, via email or by messaging our Facebook page.
+                            Contact us to reserve your table for Disco Bingo or to discuss any other enquiries by using the form below, via email or by messaging our Facebook page.
                         </p>
 
                         <ContactSection includeBooking />
