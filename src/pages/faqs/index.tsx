@@ -38,9 +38,7 @@ export default function FAQs() {
                             <Item id="openHours" title="What are your opening hours?">
                                 Our normal opening hours are 19:30 – 02:00, every day! For some events we have different opening hours: <br />
                                 <br />
-                                On Thursday, we open at 17:00 for Steak on the Stone (booking required)<br />
                                 On Friday, we open at 17:00 for Disco Bingo (booking required)<br />
-                                On Sunday, we open between 12:30 and 15:00 for Sunday Lunch (booking required)
                             </Item>
                             <Item id="promoter" title="I'm a promoter and I'd like to book an event">
                                 Great! We offer our upstairs room for events. Please check out our  <Link href="/venue-hire" style={{ color: "var(--stjames-yellow)" }}>Venue Hire</Link> page and get in touch with the relevant details.
