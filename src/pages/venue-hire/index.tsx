@@ -48,7 +48,7 @@ export default function VenueHire() {
                         <div className={styles.upstairsAtStJames}>Upstairs at St James</div>
                         <h2>The Function Room</h2>
                         <p>
-                            Our premier hire space – ideal for private events any day of the week. Perfect for Bands, DJ Events, Birthdays & more!
+                            Our premier hire space – ideal for private events any day of the week (Except Friday & Sunday). Perfect for Bands, DJ Events, Birthdays & more!
                         </p>
                         <ul>
                             <ListItem>Stage</ListItem>
