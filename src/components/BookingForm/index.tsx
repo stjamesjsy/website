@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { CustomDatePicker } from "../CustomDatePicker";
 import excludedDates from "@/excludedDates";
 
-const submitUrl = "https://formsubmit.co/ajax/22df9bd1beabb23825d1afb4c0ce1f66";
+const submitUrl = "https://mailer.glitch.je/api/contact";
 // const submitUrl = "https://formsubmit.co/ajax/luke@glitch.je";
 
 export type BookingType = "discoBingo" | "sundayLunch" | "steakStone";
@@ -65,6 +65,8 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
     const [phone, setPhone] = useState("");
     const [notes, setNotes] = useState("");
 
+    const [error, setError] = useState("");
+
     const [basketItems, setBasketItems] = useState<Record<BasketItem, string>>(
         Object.fromEntries(basketMenu.map(item => [item, ""])) as Record<BasketItem, string>
     );
@@ -102,19 +104,23 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                     "Date": formatPrettyDate(date),
                     "Number of People": people,
                     "Name": name,
-                    "Email": email,
+                    "email": email,
                     "Phone Number": phone,
                     "Basket Meals": bookingType === "discoBingo" ? selectedBasketItems : undefined,
-                    "Additional Details": notes
+                    "Additional Details": notes,
+                    type: "stjames"
                 })
             });
 
             const data = await response.json();
 
-            if (data.success !== "false") {
+            if (data.success !== false) {
                 setState(SubmitState.Success);
             } else {
                 setState(SubmitState.Error);
+                if (data?.error) {
+                    setError(data.error)
+                }
             }
         } catch {
             setState(SubmitState.Error);
@@ -156,6 +162,7 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
             {state === SubmitState.Error && (
                 <div className={clsx(styles.formError, styles.banner)}>
                     Failed to submit booking. Please try again.
+                    {error && <><br />{error}</>}
                 </div>
             )}
 
