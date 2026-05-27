@@ -108,7 +108,7 @@ export function BookingForm({ bookingType }: { bookingType: BookingType }) {
                     "Phone Number": phone,
                     "Basket Meals": bookingType === "discoBingo" ? selectedBasketItems : undefined,
                     "Additional Details": notes,
-                    type: "stjames"
+                    type: "stjames-booking"
                 })
             });
 
