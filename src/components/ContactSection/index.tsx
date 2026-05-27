@@ -1,4 +1,4 @@
-import { CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from "@/constants";
+import { BOOKINGS_EMAIL, CONTACT_EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from "@/constants";
 import { PropsWithChildren } from "react";
 import { FaEnvelope, FaFacebook, FaInstagram } from "react-icons/fa";
 import { FiClock, FiMail, FiMapPin } from "react-icons/fi";
@@ -29,7 +29,8 @@ export default function ContactSection({ includeBooking }: any) {
                         </div>
                     </ContactItem>
                     <ContactItem title="Get In Touch" icon={<FiMail color="var(--stjames-yellow)" />}>
-                        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>&nbsp;&nbsp; <span style={{ color: "#a2a1a1"}}>(general enquiries)</span><div style={{ marginBottom: "4px" }} />
+                        <a href={`mailto:${BOOKINGS_EMAIL}`}>{BOOKINGS_EMAIL}&nbsp;&nbsp; <span style={{ color: "#a2a1a1"}}>(bookings only)</span></a>
                     </ContactItem>
                     <div className={styles.socialLinks}>
                         <SocialLink href={FACEBOOK_URL} icon={<FaFacebook />} />

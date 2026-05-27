@@ -1,4 +1,5 @@
 export const CONTACT_EMAIL = "hello@stjamesjersey.com";
+export const BOOKINGS_EMAIL = "bookings@stjamesjersey.com";
 
 export const FACEBOOK_URL = "https://facebook.com/StJamesJsy";
 export const INSTAGRAM_URL = "https://instagram.com/stjamesjersey";
