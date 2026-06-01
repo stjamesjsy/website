@@ -9,9 +9,7 @@
     --stjames-darkbg: #0a0e17;
     --stjames-link-hover: #FFDE59;
     --stjames-cardbg: #131315;
-    --stjames-yellow: #FFDE59;
-    --stjames-purple: #9350c9;
-    --stjames-pink: #ff1083;
+    --stjames-yellow: #FFDE59; /* #ffcc02 */
 }
 
 * {
@@ -37,28 +35,8 @@ a:hover {
     color: var(--stjames-link-hover);
 }
 
-h1 {
-    font-size: 3rem;
-}
-
-input:focus-visible,
-textarea:focus-visible {
-    outline: none;
-    border: 1px solid var(--stjames-yellow);
-}
-
-.page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.page-content {
-    flex: 1;
-}
-
-@media screen and (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
+.link {
+    color: var(--stjames-yellow);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }

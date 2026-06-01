@@ -2,7 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     reactStrictMode: true,
-    output: "export"
-};
+    poweredByHeader: false,
+    productionBrowserSourceMaps: false
+}
 
 export default nextConfig;
