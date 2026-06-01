@@ -1,94 +1,103 @@
-import { PropsWithChildren } from "react";
-import styles from "./styles.module.css";
-import Container from "@/components/Container";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import { FaStar } from "react-icons/fa";
-import { BookingForm } from "@/components/BookingForm";
+import { BookingForm } from "@/components/contact/BookingForm";
+import { ContactDetailsCard } from "@/components/contact/ContactDetailsCard";
+import { DiscoBingoHero } from "@/components/disco-bingo/DiscoBingoHero";
+import { HowItWorksSection } from "@/components/disco-bingo/HowItWorksSection";
+import { Page } from "@/components/Page";
+import { Container } from "@/components/ui/layout/Container";
+import { FOOD_MENU_URL, WINE_MENU_URL } from "@/lib/constants";
+import { Box, Flex, Grid, GridItem, Heading, Link, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { LuExternalLink } from "react-icons/lu";
 
 export default function DiscoBingo() {
     return (
-        <div className="page">
-            <div className="page-content">
-                <Navbar homepage />
+        <Page title="Disco Bingo">
+            <DiscoBingoHero />
 
-                <div className={styles.hero}>
-                    <Container>
-                        <div className={styles.heroSection}>
-                            <div className={styles.heroText}>
-                                <h1 className={styles.title}>Disco Bingo</h1>
-                                <p>
-                                    The ultimate music bingo experience! Grab your bingo cards, dabbers, and get ready for rounds of your favourite hits – from 80s classics to school disco anthems.
-                                </p>
-                                <p>
-                                    Located at 5 Rue de Funchal, St Helier – just a short walk from the town centre.
-                                </p>
-                                <div className={styles.cashWarning}>
-                                    Please note that Bingo cards can only be bought with CASH! There is a cash point nearby at NatWest Bath Street if needed.
-                                </div>
-                            </div>
-                        </div>
-                    </Container>
-                </div>
+            <Box
+                width="100%"
+                bgColor="var(--stjames-yellow)"
+                height="10px"
+            />
 
-                <div className={styles.infoSection}>
-                    <Container>
-                        <h2>How It Works</h2>
-                        <ul>
-                            <ListItem>Each player gets bingo cards and dabbers</ListItem>
-                            <ListItem>Play a book of 5 rounds with different themes (80s, School Disco, Pop Hits, etc.)</ListItem>
-                            <ListItem>Songs are played over the speakers and shown on screen</ListItem>
-                            <ListItem>Dab the song if it’s on your card</ListItem>
-                            <ListItem>The first person to fill their card calls bingo – card verified and split if multiple winners</ListItem>
-                            <ListItem>Prize money increases each round</ListItem>
-                            <ListItem>In the final round, you can purchase additional bingo books to increase the prize fund further</ListItem>
-                        </ul>
-                    </Container>
-                </div>
-
-                <div className={styles.scheduleAndCorporateSection}>
-                    <Container>
-                        <div className={styles.grid}>
-                            <div className={styles.scheduleSection}>
-                                <h2>Schedule & Meals</h2>
-                                <p>
-                                    <strong>Friday:</strong> 7 PM – 11 PM<br />
-                                    <strong>Sunday:</strong> 5 PM – 8 PM
-                                </p>
-                                <br />
-                                <p>
-                                    Basket meals available on Fridays for £12.90. <a className={styles.link} href="/files/BasketMeals.pdf">View Menu</a>. Meals sold on-site and do not require pre-booking.
-                                </p>
-                            </div>
-
-                            <div className={styles.corporateSection}>
-                                <h2>Corporate Disco Bingo</h2>
-                                <p>
-                                    Looking to host a corporate night? Disco Bingo can be booked for private corporate events.
-                                    <br /><br /><a className={styles.link} href="/#contact">Contact us</a> to arrange your event.
-                                </p>
-                            </div>
-                        </div>
-                    </Container>
-                </div>
-
-                <Container>
-                    <div className={styles.bookingSection}>
-                        <h2>Book Your Spot</h2>
-                        <BookingForm bookingType="discoBingo" />
-                    </div>
+            <Stack gap={10}>
+                <Container
+                    paddingTop={20}
+                    paddingBottom={10}
+                >
+                    <Box id="how-it-works">
+                        <HowItWorksSection />
+                    </Box>
                 </Container>
-            </div>
-            <Footer />
-        </div>
-    )
-}
 
-function ListItem({ children }: PropsWithChildren) {
-    return (
-        <li className={styles.listItem}>
-            <FaStar color="var(--stjames-yellow)" style={{ marginRight: "8px", minWidth: "16px", fontSize: "20px" }} />
-            {children}
-        </li>
-    );
+                <Container
+                    paddingTop={16}
+                    paddingBottom={16}
+                    bgColor="gray.900"
+                >
+                    <Box>
+                        <SimpleGrid gap={16} columns={{ base: 1, md: 2 }}>
+                            <Stack gap={6}>
+                                <Heading fontWeight={800} fontSize="3xl">
+                                    Schedule & Meals
+                                </Heading>
+
+                                <Box>
+                                    <Text>
+                                        <strong>Friday:</strong> 7pm - 11pm
+                                    </Text>
+                                    <Text>
+                                        <strong>Sunday:</strong> 5pm - 9pm
+                                    </Text>
+                                </Box>
+
+                                <Text>
+                                    Basket meals available. Meals sold on-site and do not require pre-booking.
+                                </Text>
+
+                                <Flex gap={6}>
+                                    <Link className="link" href={FOOD_MENU_URL}>
+                                        Food Menu <LuExternalLink />
+                                    </Link>
+                                    <Link className="link" href={WINE_MENU_URL}>
+                                        Wine Menu <LuExternalLink />
+                                    </Link>
+                                </Flex>
+                            </Stack>
+
+                            <Stack gap={6}>
+                                <Heading fontWeight={800} fontSize="3xl">
+                                    Corporate Disco Bingo
+                                </Heading>
+
+                                <Text>
+                                    Looking to host a corporate night? Disco Bingo can be booked for private corporate events.
+                                </Text>
+
+                                <Text>
+                                    Please <Link className="link" href="/#contact">Contact us</Link> via an official company email address with any queries.
+                                </Text>
+                            </Stack>
+                        </SimpleGrid>
+                    </Box>
+                </Container>
+
+                <Container
+                    paddingTop={16}
+                    paddingBottom={10}
+                >
+                    <Box id="book">
+                        <Grid gap={10} gridTemplateColumns={{ base: "1fr", md: "1fr 450px" }}>
+                            <GridItem>
+                                <BookingForm />
+                            </GridItem>
+
+                            <GridItem>
+                                <ContactDetailsCard />
+                            </GridItem>
+                        </Grid>
+                    </Box>
+                </Container>
+            </Stack>
+        </Page>
+    )
 }
