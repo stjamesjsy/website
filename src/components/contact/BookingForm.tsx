@@ -72,7 +72,7 @@ export function BookingForm(props: Props) {
                     "Date": formatPrettyDate(form.date),
                     "Number of People": form.numberOfPeople,
                     "Name": form.name,
-                    "email": form.email,
+                    "Email": form.email,
                     "Phone Number": form.phone,
                     "Basket Meals": selectedBasketItems,
                     "Additional Details": form.notes
