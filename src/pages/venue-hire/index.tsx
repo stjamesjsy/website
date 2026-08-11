@@ -16,7 +16,7 @@ export default function VenueHire() {
                 <VenueHireHero />
             </Container>
 
-            <Stack gap={10}>
+            <Stack gap={0}>
                 <Box bgColor="gray.900">
                     <Container paddingY={16}>
                         <Box id="the-function-room">
@@ -25,7 +25,7 @@ export default function VenueHire() {
                     </Container>
                 </Box>
 
-                <Container paddingY={6}>
+                <Container paddingY={16}>
                     <Box id="contact">
                         <Text
                             color="var(--stjames-yellow)"

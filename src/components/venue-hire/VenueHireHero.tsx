@@ -1,5 +1,7 @@
-import { Box, Heading, HStack, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
-import { LuStar } from "react-icons/lu";
+import { CORPORATE_BROCHURE_URL } from "@/lib/constants";
+import { Box, Heading, HStack, Image, Link, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { LuArrowRight, LuStar } from "react-icons/lu";
+import { Button } from "../ui/base/Button";
 
 export function VenueHireHero() {
     return (
@@ -41,6 +43,12 @@ export function VenueHireHero() {
                         </Box>
                     </HStack>
                 </Stack>
+
+                <Link href={CORPORATE_BROCHURE_URL} target="_blank">
+                    <Button display="flex">
+                        Check out the Brochure <LuArrowRight />
+                    </Button>
+                </Link>
             </Stack>
 
             <Box>

@@ -8,6 +8,7 @@ export const CONTACT_FORM_URL = "https://mailer.glitch.je/api/contact";
 
 export const FOOD_MENU_URL = "/files/FoodMenu-June2026.pdf";
 export const WINE_MENU_URL = "/files/WineMenu-June2026.pdf";
+export const CORPORATE_BROCHURE_URL = "/files/CorporateBrochure-August2026.pdf";
 
 export const BASKET_MEALS = [
     { name: "Prawns Tempura", price: 9.50 },
