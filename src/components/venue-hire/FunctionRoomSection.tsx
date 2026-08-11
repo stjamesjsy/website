@@ -2,14 +2,14 @@ import { Heading, List, Text } from "@chakra-ui/react";
 import { LuStar } from "react-icons/lu";
 
 const items = [
+    "Maximum 90 Guests",
+    "Fully Air Conditioned Throughout",
     "Stage",
     "Private Bar",
-    "DJ Booth",
     "Sound & Lighting System",
-    "90 Person Capacity",
-    "Seating Available",
     "Customizable Space",
-    "Free Wi-Fi",
+    "Free Wi-Fi Available",
+    "DJ Booth",
     "Buffet available upon request"
 ];
 

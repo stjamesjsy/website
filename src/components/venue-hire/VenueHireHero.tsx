@@ -44,7 +44,7 @@ export function VenueHireHero() {
                     </HStack>
                 </Stack>
 
-                <Link href={CORPORATE_BROCHURE_URL} target="_blank">
+                <Link href={CORPORATE_BROCHURE_URL} target="_blank" marginTop={2}>
                     <Button display="flex">
                         Check out the Brochure <LuArrowRight />
                     </Button>
