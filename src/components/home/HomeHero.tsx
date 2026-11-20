@@ -31,9 +31,9 @@ export function HomeHero() {
                                 as="h1"
                                 textTransform="uppercase"
                                 fontWeight={900}
-                                fontSize={{ base: "4.5rem", md: "8rem" }}
-                                lineHeight={{ base: "5px", md: "85px" }}
-                                marginBottom="50px"
+                                fontSize={{ base: "3.8rem", md: "8rem" }}
+                                lineHeight={{ base: "65px", md: "85px" }}
+                                marginBottom={{ base: "20px", md: "50px" }}
                             >
                                 St James
                             </Heading>
