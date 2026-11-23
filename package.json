@@ -1,29 +1,42 @@
 {
-    "name": "@stjamesjsy/website",
-    "version": "1.0.0",
-    "description": "St James Website",
-    "author": "Luke <luke@glitch.je>",
-    "private": true,
-    "scripts": {
-        "dev": "next dev --webpack",
-        "build": "next build --webpack",
-        "start": "next start"
-    },
-    "dependencies": {
-        "@chakra-ui/css-reset": "^2.3.0",
-        "@chakra-ui/react": "^3.35.0",
-        "@emotion/react": "^11.14.0",
-        "next": "^16.2.6",
-        "react": "^19.2.4",
-        "react-dom": "^19.2.4",
-        "react-icons": "^5.5.0",
-        "react-image-grid-gallery": "^4.0.1"
-    },
-    "devDependencies": {
-        "@types/node": "^20",
-        "@types/react": "^19",
-        "@types/react-dom": "^19",
-        "tsx": "^4.21.0",
-        "typescript": "^5.9.3"
-    }
+  "name": "@stjamesjsy/website",
+  "version": "2.0.0",
+  "description": "St James Website",
+  "author": "Luke <luke@glitch.je>",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.3.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "isomorphic-dompurify": "^4.8.0",
+    "lucide-react": "^1.6.0",
+    "motion": "^14.9.0",
+    "next": "16.3.5",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "shadcn": "^4.1.0",
+    "tailwind-merge": "^3.5.0",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=24"
+  }
 }
