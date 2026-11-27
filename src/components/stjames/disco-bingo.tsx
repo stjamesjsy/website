@@ -171,7 +171,7 @@ function Booking() {
       <div className="sj-container relative grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,760px)] lg:gap-16">
         <div className="lg:sticky lg:top-[calc(var(--header-h)+2rem)] lg:self-start">
           <div className="flex flex-col gap-8">
-            <Heading eyebrow="Booking required" lines={["Book a", "table."]} />
+            <Heading eyebrow="Booking required" lines={["Book a", "table."]} titleClassName="text-[clamp(3.75rem,13vw,6rem)] lg:text-[5rem]" />
             <FadeUp className="flex flex-col gap-4 text-white/75">
               <p>You're booking a table for Disco Bingo. Pick your night, tell us how many are coming, and we'll confirm by email.</p>
               <p>Bingo books are bought on the night.</p>

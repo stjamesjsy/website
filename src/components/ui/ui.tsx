@@ -55,12 +55,12 @@ export function Eyebrow({ children, className = "" }: { children: ReactNode; cla
   return <p className={`sj-eyebrow ${className}`}>{children}</p>;
 }
 
-export function Heading({ eyebrow, lines, as: Tag = "h2", className = "", center = false, yellowSameLine = false }: { eyebrow?: string; lines: [string, string?]; as?: "h1" | "h2"; className?: string; center?: boolean; yellowSameLine?: boolean; }) {
+export function Heading({ eyebrow, lines, as: Tag = "h2", className = "", titleClassName = "", center = false, yellowSameLine = false }: { eyebrow?: string; lines: [string, string?]; as?: "h1" | "h2"; className?: string; titleClassName?: string; center?: boolean; yellowSameLine?: boolean; }) {
   return (
     <FadeUp y={20} className={`flex flex-col gap-4 ${center ? "items-center text-center" : ""} ${className}`}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
 
-      <Tag className="sj-h2 text-white">
+      <Tag className={`sj-h2 text-white ${titleClassName}`}>
         <span className={yellowSameLine ? "" : "block"}>{lines[0]}</span>
         
         {lines[1] && (

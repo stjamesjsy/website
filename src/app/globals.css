@@ -220,7 +220,7 @@
   .sj-h2 {
     font-family: var(--font-sj);
     font-weight: 900;
-    font-size: clamp(2.5rem, 6vw, 4.75rem);
+    font-size: clamp(3.25rem, 7vw, 4.75rem);
     line-height: 0.92;
     letter-spacing: -0.01em;
     text-transform: uppercase;
