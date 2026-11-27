@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import { ContactForm } from "./contact-form";
 import { IMG, OPENING_HOURS, SITE, VENUE } from "../../lib/data";
 import { EASE_OUT, FadeUp, useSectionProgress } from "../ui/motion";
+import { PopupMessage } from "../ui/popup-message";
 import { Eyebrow, Heading, SiteShell, StarMark, Ticker } from "../ui/ui";
 import { Events } from "./events";
 import { WhatsOn } from "./whats-on";
@@ -256,6 +257,7 @@ export function HomePage() {
       {/* <Ticker tone="dark" items={["St James is the home of late night karaoke!", ""]} /> */}
       <Visit />
       <Contact />
+      <PopupMessage />
     </SiteShell>
   );
 }

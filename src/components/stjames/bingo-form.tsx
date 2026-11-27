@@ -2,17 +2,58 @@
 
 import { Check, ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useId, useMemo, useState, type FormEvent, type ReactNode } from "react";
-import { formatBasketMeals, formatGBP, isBookable, toIsoDate, validateBooking, type BingoBooking, type BingoErrors } from "../../lib/bingo-booking";
-import { BASKET_MEALS, BINGO_SESSIONS, MAX_GUESTS } from "../../lib/bingo-data";
+import { useEffect, useId, useMemo, useState, type FormEvent, type ReactNode } from "react";
+import { coerceSchedule, formatBasketMeals, formatGBP, isBookable, nightTime, parseIsoDate, toIsoDate, validateBooking, type BingoBooking, type BingoErrors } from "../../lib/bingo-booking";
+import { BASKET_MEALS, DEFAULT_BINGO_SCHEDULE, MAX_GUESTS, type BingoSchedule } from "../../lib/bingo-data";
+import { formatTime } from "../../lib/events";
 import { SITE } from "../../lib/data";
 import { EASE_OUT } from "../ui/motion";
+import { SiteNotice } from "../ui/site-notice";
 import { formatPrettyDate, randomNumbers } from "@/lib/utils";
 
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const DAYS = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 const LONG_DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const SHORT_DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const LABEL = "text-sm font-bold text-white";
+
+/**
+ * Which nights can be booked: the regular nights, minus any blocked in the admin site, plus any extra nights.
+ * Starts with the regular Friday and Sunday nights so the calendar works straight away (or if the API is down).
+ */
+function useBingoSchedule(): BingoSchedule {
+  const [schedule, setSchedule] = useState<BingoSchedule>(DEFAULT_BINGO_SCHEDULE);
+
+  useEffect(() => {
+    if (!SITE.bingoUrl) {
+      return;
+    }
+
+    const controller = new AbortController();
+
+    fetch(SITE.bingoUrl, { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Bingo request failed (${res.status})`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const loaded = coerceSchedule(data);
+
+        if (loaded) {
+          setSchedule(loaded);
+        }
+      })
+      .catch(() => {
+        // Keep the regular nights
+      });
+
+    return () => controller.abort();
+  }, []);
+
+  return schedule;
+}
 
 function startOfDay(d: Date) {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
@@ -62,7 +103,7 @@ function Stepper({ value, onChange, min, max, label, size = "lg" }: { value: num
   );
 }
 
-function Calendar({ value, onChange, invalid }: { value: string; onChange: (iso: string) => void; invalid: boolean }) {
+function Calendar({ value, onChange, invalid, schedule }: { value: string; onChange: (iso: string) => void; invalid: boolean; schedule: BingoSchedule }) {
   const today = useMemo(() => startOfDay(new Date()), []);
   const [month, setMonth] = useState(() => new Date(today.getFullYear(), today.getMonth(), 1));
   const atFirst = month.getFullYear() === today.getFullYear() && month.getMonth() === today.getMonth();
@@ -98,7 +139,7 @@ function Calendar({ value, onChange, invalid }: { value: string; onChange: (iso:
         {cells.map((d, i) => {
           if (!d) return <span key={`blank-${i}`} />;
           const iso = toIsoDate(d);
-          const ok = isBookable(d, today);
+          const ok = isBookable(d, today, schedule);
           const selected = iso === value;
           return (
             <button
@@ -106,7 +147,7 @@ function Calendar({ value, onChange, invalid }: { value: string; onChange: (iso:
               type="button"
               disabled={!ok}
               aria-pressed={selected}
-              aria-label={`${longDate(d)}${ok ? ` - ${BINGO_SESSIONS[d.getDay()].time}` : " — unavailable"}`}
+              aria-label={`${longDate(d)}${ok ? ` - ${nightTime(d, schedule)}` : " — unavailable"}`}
               onClick={() => onChange(iso)}
               className={`relative flex h-11 items-center justify-center rounded-xl sm:h-12 text-sm font-bold transition-all sm:text-base ${selected
                 ? "scale-105 bg-sj-yellow text-sj-ink shadow-[0_6px_24px_-6px_rgba(255,222,89,0.7)]"
@@ -122,12 +163,11 @@ function Calendar({ value, onChange, invalid }: { value: string; onChange: (iso:
         })}
       </div>
       <p className="mt-5 flex flex-wrap gap-x-5 gap-y-1 text-sm text-white/55">
-        <span>
-          <span className="font-semibold text-white">Fri</span> 7pm – 11pm
-        </span>
-        <span>
-          <span className="font-semibold text-white">Sun</span> 5pm – 9pm
-        </span>
+        {schedule.weekly.map((n) => (
+          <span key={n.day}>
+            <span className="font-semibold text-white">{SHORT_DAYS[n.day]}</span> {formatTime(n.startTime)} – {formatTime(n.endTime)}
+          </span>
+        ))}
       </p>
     </div>
   );
@@ -165,7 +205,11 @@ const EMPTY_MEALS = Object.fromEntries(BASKET_MEALS.map((m) => [m.id, 0])) as Re
 
 export function BingoBookingForm() {
   const uid = useId();
-  const [date, setDate] = useState("");
+  const schedule = useBingoSchedule();
+  const [pickedDate, setDate] = useState("");
+  // A night picked before the schedule loaded may turn out to be blocked, so it's dropped
+  const picked = parseIsoDate(pickedDate);
+  const date = picked && isBookable(picked, new Date(), schedule) ? pickedDate : "";
   const [guests, setGuests] = useState(2);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -180,11 +224,13 @@ export function BingoBookingForm() {
   const selectedDate = date ? new Date(`${date}T12:00:00`) : null;
 
   const booking: BingoBooking = { date, guests, name, email, phone, meals, notes };
+
+
   const clear = (key: keyof BingoErrors) => errors[key] && setErrors((e) => ({ ...e, [key]: undefined }));
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const found = validateBooking(booking);
+    const found = validateBooking(booking, schedule);
     setErrors(found);
 
     if (Object.keys(found).length) {
@@ -262,7 +308,7 @@ export function BingoBookingForm() {
             Booking sent
           </h3>
           <p className="max-w-lg text-lg leading-8 text-white/80">
-            Thanks {b.name.trim().split(" ")[0]} - we've got your request for {b.guests} {b.guests === 1 ? "person" : "people"} on {longDate(d)} ({BINGO_SESSIONS[d.getDay()].time}). We'll confirm your table by
+            Thanks {b.name.trim().split(" ")[0]} - we've got your request for {b.guests} {b.guests === 1 ? "person" : "people"} on {longDate(d)} ({nightTime(d, schedule)}). We'll confirm your table by
             email at <span className="text-white">{b.email.trim()}</span>.
           </p>
         </div>
@@ -277,6 +323,7 @@ export function BingoBookingForm() {
 
   return (
     <form noValidate onSubmit={submit} className="sj-card flex flex-col gap-10 p-5 sm:p-8 lg:p-10" aria-describedby={`${uid}-status`}>
+      <SiteNotice placement="bingo" className="-mb-4" />
       <section className="flex flex-col gap-6" aria-labelledby={`${uid}-s1`}>
         <span id={`${uid}-s1`} className="contents">
           <StepTitle n={1}>Pick your night</StepTitle>
@@ -284,6 +331,7 @@ export function BingoBookingForm() {
         <div id={`${uid}-date`}>
           <Field label="Date" error={errors.date} errorId={`${uid}-date-error`}>
             <Calendar
+              schedule={schedule}
               value={date}
               invalid={!!errors.date}
               onChange={(iso) => {
@@ -433,10 +481,10 @@ export function BingoBookingForm() {
               <span className="font-bold text-white">{longDate(selectedDate)}</span>
               <br className="hidden sm:block" />
               <span className="sm:hidden"> · </span>
-              {BINGO_SESSIONS[selectedDate.getDay()].time} · {guests} {guests === 1 ? "person" : "people"}
+              {nightTime(selectedDate, schedule)} · {guests} {guests === 1 ? "person" : "people"}
             </>
           ) : (
-            "Choose a Friday or Sunday to continue."
+            "Choose a night to continue."
           )}
         </p>
         <button type="submit" disabled={sending} className="sj-btn sj-btn-solid h-14 w-full px-10 text-base disabled:cursor-wait disabled:opacity-70 sm:w-auto">

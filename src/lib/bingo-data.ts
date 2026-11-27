@@ -1,9 +1,25 @@
 import { IMG } from "./data";
 
-/** Days of the week Disco Bingo runs (0 = Sunday … 6 = Saturday) and their session times. */
-export const BINGO_SESSIONS: Record<number, { day: string; time: string }> = {
-  5: { day: "Friday", time: "7pm - 11pm" },
-  0: { day: "Sunday", time: "5pm - 9pm" }
+/** A regular weekly Disco Bingo night. day: 0 = Sunday … 6 = Saturday. Times are HH:mm (24h). */
+export type BingoNight = { day: number; startTime: string; endTime: string };
+
+/** A one-off extra night added in the admin site, e.g. over Christmas. */
+export type BingoExtraNight = { date: string; startTime: string; endTime: string };
+
+/**
+ * Which nights can be booked. Loaded from the API (set in the admin site) - see useBingoSchedule.
+ * blocked = regular nights that aren't running (yyyy-mm-dd).
+ */
+export type BingoSchedule = { weekly: BingoNight[]; blocked: string[]; extra: BingoExtraNight[] };
+
+/** Used until the API responds, or if it can't be reached: the regular Friday and Sunday nights. */
+export const DEFAULT_BINGO_SCHEDULE: BingoSchedule = {
+  weekly: [
+    { day: 5, startTime: "19:00", endTime: "23:00" },
+    { day: 0, startTime: "17:00", endTime: "21:00" }
+  ],
+  blocked: [],
+  extra: []
 }
 
 export const BINGO_HERO = {

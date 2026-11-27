@@ -27,7 +27,11 @@ export const SITE = {
   wineMenu: `/files/WineMenu-June2026.pdf`,
   contactFormUrl: "https://mailer.glitch.je/api/contact",
   /** Set in .env - see .env.example. */
-  eventsUrl: process.env.NEXT_PUBLIC_EVENTS_URL as string
+  eventsUrl: process.env.NEXT_PUBLIC_EVENTS_URL as string,
+  /** Set in .env - see .env.example. Blocked and extra Disco Bingo nights. */
+  bingoUrl: process.env.NEXT_PUBLIC_BINGO_URL as string | undefined,
+  /** Set in .env - see .env.example. Messages for the home page and booking form, set in the admin site. */
+  messagesUrl: process.env.NEXT_PUBLIC_MESSAGES_URL as string | undefined
 }
 
 export const OPENING_HOURS: [string, string][] = [

@@ -1,4 +1,5 @@
-import { BASKET_MEALS, BINGO_SESSIONS, MAX_GUESTS } from "./bingo-data";
+import { BASKET_MEALS, MAX_GUESTS, type BingoSchedule } from "./bingo-data";
+import { formatTime } from "./events";
 
 export type BingoBooking = {
   date: string;
@@ -26,20 +27,62 @@ export function parseIsoDate(s: string): Date | null {
   return toIsoDate(d) === s ? d : null;
 }
 
-export function isBookable(d: Date, today: Date): boolean {
-  const day = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-  const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  return day >= t && d.getDay() in BINGO_SESSIONS;
+/** The night's times if Disco Bingo is on that date (a regular night that isn't blocked, or an extra night). */
+export function nightOn(d: Date, schedule: BingoSchedule): { startTime: string; endTime: string } | null {
+  const iso = toIsoDate(d);
+  const extra = schedule.extra.find((n) => n.date === iso);
+
+  if (extra) {
+    return extra;
+  }
+  if (schedule.blocked.includes(iso)) {
+    return null;
+  }
+  return schedule.weekly.find((n) => n.day === d.getDay()) ?? null;
 }
 
-export function validateBooking(b: BingoBooking, today = new Date()): BingoErrors {
+/** "7pm - 11pm" for the night on that date, or "" if there isn't one. */
+export function nightTime(d: Date, schedule: BingoSchedule): string {
+  const night = nightOn(d, schedule);
+  return night ? `${formatTime(night.startTime)} - ${formatTime(night.endTime)}` : "";
+}
+
+export function isBookable(d: Date, today: Date, schedule: BingoSchedule): boolean {
+  const day = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const t = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  return day >= t && nightOn(day, schedule) !== null;
+}
+
+/** Narrow the API response into a BingoSchedule, or null if it doesn't look right. */
+export function coerceSchedule(raw: unknown): BingoSchedule | null {
+  if (!raw || typeof raw !== "object") {
+    return null;
+  }
+
+  const r = raw as Record<string, unknown>;
+  const TIME_RE = /^\d{2}:\d{2}$/;
+  const isNight = (n: unknown): n is Record<string, unknown> =>
+    !!n && typeof n === "object" && TIME_RE.test(String((n as Record<string, unknown>).startTime)) && TIME_RE.test(String((n as Record<string, unknown>).endTime));
+
+  if (!Array.isArray(r.weekly) || !Array.isArray(r.blocked) || !Array.isArray(r.extra)) {
+    return null;
+  }
+
+  return {
+    weekly: r.weekly.filter(isNight).filter((n) => Number.isInteger(n.day)).map((n) => ({ day: n.day as number, startTime: n.startTime as string, endTime: n.endTime as string })),
+    blocked: r.blocked.filter((d): d is string => typeof d === "string" && parseIsoDate(d) !== null),
+    extra: r.extra.filter(isNight).filter((n) => typeof n.date === "string" && parseIsoDate(n.date) !== null).map((n) => ({ date: n.date as string, startTime: n.startTime as string, endTime: n.endTime as string })),
+  }
+}
+
+export function validateBooking(b: BingoBooking, schedule: BingoSchedule, today = new Date()): BingoErrors {
   const e: BingoErrors = {};
   const date = parseIsoDate(b.date);
 
   if (!date) {
-    e.date = "Pick a Friday or Sunday.";
-  } else if (!isBookable(date, today)) {
-    e.date = "Disco Bingo runs on Fridays and Sundays - pick an upcoming one.";
+    e.date = "Pick a night.";
+  } else if (!isBookable(date, today, schedule)) {
+    e.date = "There's no Disco Bingo that night - pick one of the highlighted dates.";
   }
 
   if (!Number.isInteger(b.guests) || b.guests < 1) {
